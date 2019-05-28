@@ -63,4 +63,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "rest", "~> 3.0"
 
+gem "rest-client", "~> 2.0"
 gem "json", "~> 2.2"
+
+gem "require_all", "~> 2.0"
+
+gem "mapquest", "~> 0.0.2"
