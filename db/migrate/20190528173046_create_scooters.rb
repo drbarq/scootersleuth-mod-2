@@ -1,6 +1,6 @@
-class CreateLimes < ActiveRecord::Migration[5.2]
+class CreateScooters < ActiveRecord::Migration[5.2]
   def change
-    create_table :limes do |t|
+    create_table :scooters do |t|
       t.string :company
       t.decimal :latitude
       t.decimal :longitude

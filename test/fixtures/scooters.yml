@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  latitude: 9.99
+  longitude: 9.99
+  battery_level: MyString
+
+two:
+  company: MyString
+  latitude: 9.99
+  longitude: 9.99
+  battery_level: MyString

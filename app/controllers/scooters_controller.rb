@@ -1,0 +1,2 @@
+class ScootersController < ApplicationController
+end
