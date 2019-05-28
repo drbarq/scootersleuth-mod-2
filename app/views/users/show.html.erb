@@ -1,34 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
+<h2>Welcome <%= "#{@user.full_name}" %>!</h2>
+</br>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Bird:</strong>
-  <%= @user.bird %>
-</p>
 
-<p>
-  <strong>Lime:</strong>
-  <%= @user.lime %>
-</p>
+<form>
+  <p>
+  <span>
+    <strong>Bird:</strong>
+    <input type="checkbox"/>
+  </span>
 
-<p>
-  <strong>Spin:</strong>
-  <%= @user.spin %>
-</p>
+  <span>
+    <strong>Lime:</strong>
+    <input type="checkbox"/>
+  </span>
 
+  <span>
+    <strong>Spin:</strong>
+    <input type="checkbox"/>
+  </span>
+  </p>
+  <span id="address"><strong>Address: </strong></span>
+  <input type="text" name="address" />
+  <input type="submit">
+</form>
+
+</br/br>
+<h4><%= link_to 'Full Scooter List', scooters_path %></h4>
+<h4><%= link_to 'Preferred Scooters Near Me', scooters_path  %></h4>
+
+</br/br>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
