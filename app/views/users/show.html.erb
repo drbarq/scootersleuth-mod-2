@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Welcome <%= "#{@user.full_name}" %>!</h2>
-
+</br>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Bird:</strong>
-  <%= @user.bird %>
-</p>
-
-<p>
-  <strong>Lime:</strong>
-  <%= @user.lime %>
-</p>
-
-<p>
-  <strong>Spin:</strong>
-  <%= @user.spin %>
-</p>
 
 <form>
-  <span id="address">Address: </span>
+  <p>
+  <span>
+    <strong>Bird:</strong>
+    <input type="checkbox"/>
+  </span>
+
+  <span>
+    <strong>Lime:</strong>
+    <input type="checkbox"/>
+  </span>
+
+  <span>
+    <strong>Spin:</strong>
+    <input type="checkbox"/>
+  </span>
+  </p>
+  <span id="address"><strong>Address: </strong></span>
   <input type="text" name="address" />
   <input type="submit">
 </form>
