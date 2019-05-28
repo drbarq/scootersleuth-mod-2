@@ -1,0 +1,15 @@
+<h1>List of all Scooters</h1>
+
+<ul>
+  <% Lime.first(5).each do |scooter| %>
+    <li>ID: <%= scooter.id %> - Company: <%= scooter.company %> - Lattitude: <%= scooter.latitude %> - Longitude: <%= scooter.longitude%> - Battery: <%= scooter.battery_level %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% Bird.first(5).each do |scooter| %>
+    <li>ID: <%= scooter.id %> - Company: <%= scooter.company %> - Lattitude: <%= scooter.latitude %> - Longitude: <%= scooter.longitude%> - Battery: <%= scooter.battery_level %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Home', users_path %>

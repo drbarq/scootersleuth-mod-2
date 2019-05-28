@@ -1,37 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>Welcome to Scooter Sleuth!</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Bird</th>
-      <th>Lime</th>
-      <th>Spin</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.bird %></td>
-        <td><%= user.lime %></td>
-        <td><%= user.spin %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+<% @users.each do |user| %>
+<li><%= link_to user.full_name, user_path(user.id) %></li>
+<% end %>
+</ul>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<h4>
+  <div class="dropdown">
+<span><%= link_to 'Create New User', new_user_path %><span>
+</h4>
+</div>
