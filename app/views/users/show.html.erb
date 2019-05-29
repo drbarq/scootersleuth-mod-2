@@ -1,44 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h2 class="logo">SCOOTER SLEUTH</h2>
 
-<h2>Welcome <%= "#{@user.full_name}" %>!</h2>
-</br>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-
-<form>
+  <h2>Welcome <%= "#{@user.full_name}" %>!</h2>
+  </br>
   <p>
-  <span>
-    <strong>Bird:</strong>
-    <input type="checkbox"/>
-  </span>
-
-  <span>
-    <strong>Lime:</strong>
-    <input type="checkbox"/>
-  </span>
-
-  <span>
-    <strong>Spin:</strong>
-    <input type="checkbox"/>
-  </span>
-
+    <strong>Email:</strong>
+    <%= @user.email %>
   </p>
-  
-  <span id="address"><strong>Address: </strong></span>
 
-  <input type="text" name="address" />
 
-  <input type="submit">
+  <form>
+    <p>
+    <span>
+      <strong>Bird:</strong>
+      <input type="checkbox"/>
+    </span>
 
-</form>
+    <span>
+      <strong>Lime:</strong>
+      <input type="checkbox"/>
+    </span>
 
-</br/br>
-<h4><%= link_to 'Full Scooter List', scooters_path %></h4>
-<h4><%= link_to 'Preferred Scooters Near Me', scooters_path  %></h4>
+    <span>
+      <strong>Spin:</strong>
+      <input type="checkbox"/>
+    </span>
 
-</br/br>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    </p>
+
+    <span id="address"><strong>Address: </strong></span>
+
+    <input type="text" name="address" />
+
+    <input type="submit">
+
+  </form>
+
+  </br/br>
+  <h4><%= link_to 'Full Scooter List', scooters_path %></h4>
+  <h4><%= link_to 'Preferred Scooters Near Me', scooters_path  %></h4>
+
+  </br/br>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+
+</div>
