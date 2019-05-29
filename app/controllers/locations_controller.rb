@@ -8,12 +8,12 @@ class LocationsController < ApplicationController
     Lime.merge_table
     Bird.merge_table
     @closest_scooters = Scooter.all # acombination of all the closests scooters (only lime and bird so far)
-  
+
 
     # grab the most recent scooters and put them in a table
     # query lime based on location
     # query bird based on location
-    # scooter model will hold the api calls  
+    # scooter model will hold the api calls
   end
 
   def new
@@ -25,15 +25,6 @@ class LocationsController < ApplicationController
     mapquest_response = Location.get_location(address)
     geocode_quality = mapquest_response.response[:results][0][:locations][0][:geocodeQualityCode]
 
-    # if  geocode_quality == "P1AAA"
-    #   Location.create_location
-    #   redirect_to location_path(:id => Location.last.id)
-    
-    # else
-    #   render :new, notice: "please enter a more accurate address"
-    #   # pop up: please enter a more accurate address
-
-    # end
 
     respond_to do |format|
       if geocode_quality == "P1AAA"
@@ -44,7 +35,6 @@ class LocationsController < ApplicationController
       
       end
     end 
-
 
   end
 
