@@ -2,6 +2,7 @@ class Lime < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
     # Lime.near([39.758596, -105.007265])
+    # Jump.near([39.758596, -105.007265]).first(5)
 
 
     def self.closest
