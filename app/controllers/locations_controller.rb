@@ -14,6 +14,7 @@ class LocationsController < ApplicationController
   def create
     address = params["location"]["address"]
     mapquest_response = Location.get_location(address)
+    byebug
     geocode_quality = mapquest_response.response[:results][0][:locations][0][:geocodeQualityCode]
 
     if  geocode_quality == "P1AAA"
