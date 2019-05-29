@@ -1,4 +1,5 @@
 class Bird < ApplicationRecord
+    geocoded_by [:latitude, :longitude]
     def self.closest
         # pass in value of number of scooters needed
         Bird.first(5)

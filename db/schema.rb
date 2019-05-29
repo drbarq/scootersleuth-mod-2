@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_173046) do
+ActiveRecord::Schema.define(version: 2019_05_29_211941) do
 
   create_table "birds", force: :cascade do |t|
     t.string "company"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2019_05_28_173046) do
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_favorites_on_location_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "jumps", force: :cascade do |t|
+    t.string "company"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "battery_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "limes", force: :cascade do |t|
@@ -73,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_173046) do
     t.boolean "bird"
     t.boolean "lime"
     t.boolean "spin"
+    t.boolean "jump"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
