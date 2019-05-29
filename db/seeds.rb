@@ -10,10 +10,10 @@ require "json"
 class BirdData 
     file = File.read('jsonresponses/birdresponse.json')
     @data_hash = JSON.parse(file)["birds"]
-
+    
     def self.seed_scooter
         @data_hash.each do |scooter|
-            Bird.create(company: "Bird", 
+            Bird.create(company: "Bird",
                 latitude: scooter["location"]["latitude"], 
                 longitude: scooter["location"]["longitude"], 
                 battery_level: scooter["battery_level"])

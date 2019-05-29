@@ -7,10 +7,10 @@ class Bird < ApplicationRecord
     def self.merge_table # takes the first 5 entries in the returned results and creates new entries in the aggregated table
         Bird.closest.each do |bird_scoot|
             Scooter.create(
-                company: lime_scoot.company, 
-                latitude: lime_scoot.latitude, 
-                longitude: lime_scoot.longitude, 
-                battery_level: lime_scoot.battery_level
+                company: bird_scoot.company, 
+                latitude: bird_scoot.latitude, 
+                longitude: bird_scoot.longitude, 
+                battery_level: bird_scoot.battery_level
                 )
         end 
     end 
