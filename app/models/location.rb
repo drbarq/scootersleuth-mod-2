@@ -6,9 +6,9 @@ require 'mapquest'
 class Location < ApplicationRecord
     has_many :favorites
 
-  @@key = Rails.application.credentials.mapquest
+  @@mapquest_key = Rails.application.credentials.mapquest
 
-  @@mapquest = MapQuest.new(@@key)
+  @@mapquest = MapQuest.new(@@mapquest_key)
 
   # def self.get_location(address)
   #   data = @@mapquest.geocoding.address(address)
