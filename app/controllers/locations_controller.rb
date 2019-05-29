@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
 
   def index
-    # byebug
   end
 
   def show
+
   end
 
   def new

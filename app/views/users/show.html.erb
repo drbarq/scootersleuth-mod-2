@@ -6,15 +6,12 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<!-- check boxes based on user scooter choice -->
-<!-- check boxes does not carry over to the the location finder page need to explore this -->
-<%= form_for :user, url: users_path do |f| %>
-  <label>Bird<%= f.check_box :bird %></label>
-  <label>Lime<%= f.check_box :lime %></label>
-  <label>Spin<%= f.check_box :spin %></label>
-<% end %>
+<!-- links to updating the user -->
+<%= render 'search_form', user: @user %>
+
   <!--  using a button to link to the locations new page -->
-  <button onclick="window.location.href='/locations/new'">Lets Find Some Scooters!</button>
+  <button f.submit onclick="window.location.href='/locations/new'">Lets Find Some Scooters!</button>
+
 </form>
 
 
