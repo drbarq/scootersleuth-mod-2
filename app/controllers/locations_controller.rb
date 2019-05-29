@@ -7,7 +7,8 @@ class LocationsController < ApplicationController
   def show
     Lime.merge_table
     Bird.merge_table
-    @closest_scooters = Scooters.all # acombination of all the closests scooters (only lime and bird so far)
+    byebug
+    @closest_scooters = Scooter.all # acombination of all the closests scooters (only lime and bird so far)
   
 
     # grab the most recent scooters and put them in a table
