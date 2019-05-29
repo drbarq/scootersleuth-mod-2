@@ -71,3 +71,5 @@ gem "require_all", "~> 2.0"
 gem "mapquest", "~> 0.0.2"
 
 gem "geocoder", "~> 1.5"
+
+gem "httparty", "~> 0.17.0"
