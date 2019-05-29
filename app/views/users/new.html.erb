@@ -1,9 +1,9 @@
 <div class="container">
   <h2 class="logo">SCOOTER SLEUTH</h2>
 
-  <h2>Create New User</h2>
+  <h2 id="new_user_header">Create New User</h2>
 
-  <%= render 'form', user: @user %>
+  <div id="new_user_form"><%= render 'form', user: @user %></div>
 
-  <%= link_to 'Back', users_path %>
+  <a href="users" id="users_button"><button>Back</button></a>
 </div>

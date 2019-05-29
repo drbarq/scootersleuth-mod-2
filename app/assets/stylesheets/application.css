@@ -61,7 +61,8 @@ li {
   font-family: 'Ultra', serif;
   font-style: italic;
   font-size: 30px;
-  text-align: right;
+  position: absolute;
+  right: 8rem;
 }
 
 .content {
@@ -71,8 +72,4 @@ li {
   position: relative;
   top: 7rem;
   text-align: left;
-}
-
-#new_user:hover {
-
 }
