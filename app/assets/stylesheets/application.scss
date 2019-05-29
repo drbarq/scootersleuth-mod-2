@@ -10,66 +10,63 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ultra&display=swap');
+@import "bootstrap";
 
-body {
-  font-family: 'Roboto', sans-serif;
-  margin-right: 5rem;
-  margin-left: 5rem;
-  font-size: 16px;
-  color: #444;
-  background-color: #AAA;
-}
-
-h1 {
-  text-align: center;
-  font-family: 'Ultra', serif;
-  font-style: italic;
-  font-size: 40px;
-  padding: 1rem;
-  margin: 2rem;
-  width: 80%;
-  border-radius: 0.5rem;
-  border-bottom: 2px solid #AAA;
-  display: block;
-  height: 3rem;
-  position: absolute;
-  right: 5rem;
-}
-
-h2 {
-  text-align: center;
-}
-
-li {
-  font-size: 16px;
-  padding: .5rem;
-}
-
-.container {
-  display: flex;
-  height: 35rem;
-  width: 100%;
-  background-color: #EEE;
-}
-
+// body {
+//   font-family: 'Roboto', sans-serif;
+//   margin-right: 5rem;
+//   margin-left: 5rem;
+//   font-size: 16px;
+//   color: #444;
+//   background-color: #AAA;
+// }
+//
+// h1 {
+//   text-align: center;
+//   font-family: 'Ultra', serif;
+//   font-style: italic;
+//   font-size: 40px;
+//   padding: 1rem;
+//   margin: 2rem;
+//   width: 80%;
+//   border-radius: 0.5rem;
+//   border-bottom: 2px solid #AAA;
+//   display: block;
+//   height: 3rem;
+//   position: absolute;
+//   right: 5rem;
+// }
+//
+// h2 {
+//   text-align: center;
+// }
+//
+// li {
+//   font-size: 16px;
+//   padding: .5rem;
+// }
+//
+// .container {
+//   display: flex;
+//   height: 35rem;
+//   width: 100%;
+//   background-color: #EEE;
+// }
+//
 .logo {
   font-family: 'Ultra', serif;
   font-style: italic;
   font-size: 30px;
-  position: absolute;
-  right: 8rem;
 }
-
-.content {
-  display: block;
-  clear: both;
-  margin: 2rem;
-  position: relative;
-  top: 7rem;
-  text-align: left;
-}
+//
+// .content {
+//   display: block;
+//   clear: both;
+//   margin: 2rem;
+//   position: relative;
+//   top: 7rem;
+//   text-align: left;
+// }
