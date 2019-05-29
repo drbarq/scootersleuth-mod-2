@@ -33,7 +33,15 @@ class Location < ApplicationRecord
     end
   end
 
-  
+  def self.get_lat_long
+    coordinates = []
+    @@data.locations.each do |location|
+      coordinates << location[:latLng][:lat]
+      coordinates << location[:latLng][:lng]
+    end
+    byebug
+    coordinates
+  end
 
 
 end
