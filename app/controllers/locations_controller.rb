@@ -25,14 +25,17 @@ class LocationsController < ApplicationController
     mapquest_response = Location.get_location(address)
     geocode_quality = mapquest_response.response[:results][0][:locations][0][:geocodeQualityCode]
 
-    if  geocode_quality == "P1AAA"
-      Location.create_location
-      redirect_to location_path(:id => Location.last.id)
 
-    else
-      render :new
-      # pop up: please enter a more accurate address
-    end
+    respond_to do |format|
+      if geocode_quality == "P1AAA"
+        Location.create_location
+        format.html { redirect_to location_path(:id => Location.last.id)}
+      else
+        format.html { redirect_to new_location_path, notice: 'Please enter a more accurate address'}
+      
+      end
+    end 
+
   end
 
 end
