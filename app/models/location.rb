@@ -10,15 +10,30 @@ class Location < ApplicationRecord
 
   @@mapquest = MapQuest.new(@@key)
 
+  # def self.get_location(address)
+  #   data = @@mapquest.geocoding.address(address)
+  #   data.locations.each do |location|
+  #     address = "#{location[:street]}, #{location[:adminArea5]}, #{location[:adminArea3]} #{location[:postalCode]}"
+  #     lat = location[:latLng][:lat]
+  #     lng = location[:latLng][:lng]
+  #     Location.create(address: address, latitude: lat, longitude: lng)
+  #   end
+  # end
+
   def self.get_location(address)
-    data = @@mapquest.geocoding.address(address)
-    data.locations.each do |location|
+    @@data = @@mapquest.geocoding.address(address)
+  end
+
+  def self.create_location
+    @@data.locations.each do |location|
       address = "#{location[:street]}, #{location[:adminArea5]}, #{location[:adminArea3]} #{location[:postalCode]}"
       lat = location[:latLng][:lat]
       lng = location[:latLng][:lng]
       Location.create(address: address, latitude: lat, longitude: lng)
     end
   end
+
+  
 
 
 end
