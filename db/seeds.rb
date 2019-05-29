@@ -43,8 +43,11 @@ class JumpData
     @data = JSON.parse(@response.body)
 
     def self.seed_bikes
-        @data["data"]["bikes"].each do |bike|
-            Jump.create(company: "Jump", latitude: bike["lon"], longitude: bike["lat"], battery_level: bike["jump_ebike_battery_level"] )
+        @data["data"]["bikes"].each do |bike|  
+            Jump.create(company: "Jump", 
+            latitude: bike["lat"], 
+            longitude: bike["lon"], 
+            battery_level: bike["jump_ebike_battery_level"])
         end
     end 
 end 
@@ -52,7 +55,7 @@ end
 
 
 
-
+User.destroy_all
 Bird.destroy_all
 Lime.destroy_all
 Jump.destroy_all

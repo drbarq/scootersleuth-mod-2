@@ -1,4 +1,9 @@
 class Lime < ApplicationRecord
+    geocoded_by [:latitude, :longitude]
+
+    # Lime.near([39.758596, -105.007265])
+
+
     def self.closest
         # pass in value of number of scooters needed
         Lime.first(5)

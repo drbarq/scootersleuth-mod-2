@@ -4,6 +4,7 @@ require 'mapquest'
 
 
 class Location < ApplicationRecord
+
     has_many :favorites
 
   @@mapquest_key = Rails.application.credentials.mapquest
