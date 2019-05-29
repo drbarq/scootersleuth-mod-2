@@ -3,13 +3,13 @@
 
   <h2>Enter Your Current Location:</h2>
 
-  <p id="notice_error"><%= notice %></p>
+  <p id="notice_error" class="error"><%= notice %></p>
 
   <div>
     <%= form_for :location, url: locations_path do |f| %>
       <%= f.label :address %>
       <%= f.text_field :address %>
-      <%= f.submit %>
+      <%= f.submit 'Add Location', :class => 'btn btn-primary btn-large' %>
     <% end %>
   </div>
 

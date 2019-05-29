@@ -60,7 +60,7 @@ ul {
 
 .container {
   width: 80%;
-  height: 37rem;
+  height: 45rem;
   background-color: #DDD;
   border-left: 2px solid #AAA;
   border-right: 2px solid #AAA;
@@ -69,12 +69,12 @@ ul {
 .logo {
   font-family: 'Ultra', serif;
   font-style: italic;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .bottom_button {
   position: absolute;
-  margin-top: 18rem;
+  top: 28rem;
   margin-left: 32%;
 }
 
@@ -95,6 +95,10 @@ ul {
   background-color: #D6D6D6;
   border: 1px solid #D4D4D4;
   box-shadow: 3px 3px 2px #CCC
+}
+
+.error {
+  font-size: 8pt;
 }
 //
 // .content {

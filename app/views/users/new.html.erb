@@ -5,5 +5,7 @@
 
   <div id="new_user_form"><%= render 'form', user: @user %></div>
 
-  <a href="users" id="users_button"><button>Back</button></a>
+  <div class="card-footer footer">
+    <%= link_to 'Home', users_path %>
+  </div>
 </div>
