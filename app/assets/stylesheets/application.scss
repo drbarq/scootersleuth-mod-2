@@ -16,6 +16,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 #map {
     margin: 0 auto;
     width: 600px;
@@ -23,8 +24,10 @@
 }
 
 body {
-  background-color: #FAFAFA;
+  background-color: #FFFFFA;
   text-shadow: 1px 1px 1px #CCC;
+  background-image: url(asset_path('scooter.png'));
+  background-repeat: space repeat-y;
 }
 
 h3 {
@@ -52,7 +55,7 @@ ul {
   left: 10%;
   width: 80%;
   height: 38rem;
-  background-color: #EEE;
+  background-color: #EEEEF2F7;
   border-left: 2px solid #DDD;
   border-right: 2px solid #DDD;
 }
@@ -71,13 +74,26 @@ ul {
 }
 
 .users_list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
   position: absolute;
   box-sizing: content-box;
   width: 80%;
-  height: 40%;
-  margin-top: 3rem;
+  height: 45%;
   margin-left: 8%;
-  background-color: cyan;
+//  border: 1px solid black;
+}
+
+.user_list_element {
+  width: 20rem;
+  text-align: center;
+  margin: 1rem 80%;
+  padding: 1rem;
+  background-color: #E9E9E9;
+  border: 1px solid #E5E5E5;
+  box-shadow: 3px 3px 2px #DDD;
+  border-radius: 2px;
 }
 
 .footer {
@@ -92,13 +108,10 @@ ul {
   left: 46%;
 }
 
-.user_list_element {
-  padding: 1rem;
-  margin: 1rem;
-  background-color: #E9E9E9;
-  border: 1px solid #E5E5E5;
-  box-shadow: 3px 3px 2px #DDD;
-  border-radius: 2px;
+.footer3 {
+  position: fixed;
+  bottom: 0px;
+  left: 42%;
 }
 
 .error_style {
@@ -106,6 +119,17 @@ ul {
   color: red;
 }
 
+.notice_good {
+  font-size: 9pt;
+  color: green;  
+}
+
 .find_scooter_button {
   margin-top: 2rem;
+}
+
+.logo_text {
+  font-family: 'Ultra', serif;
+  font-style: italic;
+  text-shadow: 1px 1px 1px #55B;
 }
