@@ -2,17 +2,18 @@
   <h2 class="text-right logo">¤ SCOOTER SLEUTH ¤</h2>
 
 
-<h3 class="text-center">Scooters Near You:</h3>
+  <h3 class="text-center">Scooters Near You:</h3>
 
-<ul class="scooter_list"><% @closest_scooters.limit(15).each do |scooter| %>
+  <ul class="scooter_list"><% @closest_scooters.limit(15).each do |scooter| %>
      <li><%= scooter.company %>
      <%= scooter.latitude %>
      <%= scooter.longitude %>
      <%= scooter.battery_level %></li>
-<% end %></ul>
+     <% end %>
+  </ul>
 
-<div class="card-footer footer">
-  <%= link_to 'Home', users_path %>
-</div>
+  <div class="card-footer footer">
+    <%= link_to 'Home', users_path %>
+  </div>
 
 </div>
