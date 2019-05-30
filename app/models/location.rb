@@ -10,6 +10,7 @@ class Location < ApplicationRecord
 
   @@mapquest = MapQuest.new(@@mapquest_key)
 
+  #I think we can delete?
   # def self.get_location(address)
   #   data = @@mapquest.geocoding.address(address)
   #   data.locations.each do |location|
@@ -33,6 +34,7 @@ class Location < ApplicationRecord
     end
   end
 
+  #I think we can delete?
   def self.get_lat_long
     coordinates = []
     @@data.locations.each do |location|

@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
 
   def show
     # take the most recent updated user and find the scooter preferences
+    
     if User.last.bird 
       Bird.merge_table
     end 
@@ -13,13 +14,13 @@ class LocationsController < ApplicationController
       Lime.merge_table
     end 
 
-    @closest_scooters = Scooter.all # acombination of all the closests scooters (only lime and bird so far)
+    if User.last.jump 
+      Jump.merge_table
+    end 
 
+    # Scooter.destroy_all
+    @closest_scooters = Scooter.all # acombination of all the closest scooters
 
-    # grab the most recent scooters and put them in a table
-    # query lime based on location
-    # query bird based on location
-    # scooter model will hold the api calls
   end
 
   def new
@@ -38,7 +39,6 @@ class LocationsController < ApplicationController
         format.html { redirect_to location_path(:id => Location.last.id)}
       else
         format.html { redirect_to new_location_path, notice: 'Please enter a more accurate address'}
-      
       end
     end 
 

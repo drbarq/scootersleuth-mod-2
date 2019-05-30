@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "json"
+require 'httparty'
+
+
 
 class BirdData 
     file = File.read('jsonresponses/birdresponse.json')
@@ -35,8 +38,28 @@ class LimeData
     end 
 end 
 
+class JumpData
+    @response = HTTParty.get('https://den.jumpbikes.com/opendata/free_bike_status.json')
+    @data = JSON.parse(@response.body)
+
+    def self.seed_bikes
+        @data["data"]["bikes"].each do |bike|  
+            Jump.create(company: "Jump", 
+            latitude: bike["lat"], 
+            longitude: bike["lon"], 
+            battery_level: bike["jump_ebike_battery_level"])
+        end
+    end 
+end 
+
+
+
+
+User.destroy_all
 Bird.destroy_all
 Lime.destroy_all
+Jump.destroy_all
 
 BirdData.seed_scooter
 LimeData.seed_scooter
+JumpData.seed_bikes
