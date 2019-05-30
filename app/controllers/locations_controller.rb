@@ -14,12 +14,11 @@ class LocationsController < ApplicationController
     end 
 
     if User.last.jump 
-      Jump.closest
+      Jump.merge_table
     end 
 
-
-
-    @closest_scooters = Scooter.all # acombination of all the closests scooters (only lime and bird so far)
+    
+    @closest_scooters = Scooter.all # acombination of all the closests scooters
 
 
     # grab the most recent scooters and put them in a table
