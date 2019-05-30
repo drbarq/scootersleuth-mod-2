@@ -76,3 +76,4 @@ gem 'jquery-rails'
 gem "geocoder", "~> 1.5"
 gem "font-awesome-rails"
 gem "httparty", "~> 0.17.0"
+gem 'rails-controller-testing'
