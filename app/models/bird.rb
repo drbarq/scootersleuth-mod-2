@@ -62,7 +62,7 @@ class Bird < ApplicationRecord
     end 
     
     def self.avg_battery_level 
-        Bird.average(:battery_level).round
+        Bird.average(:battery_level).to_i
     end 
 
 end

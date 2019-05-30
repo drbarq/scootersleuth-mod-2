@@ -10,6 +10,9 @@ class LocationsController < ApplicationController
     @bird_battery = Bird.avg_battery_level #returns a whole number
     @lime_battery = Lime.avg_battery_level #This returns a hash with the battery level and count
     @jump_battery = Jump.avg_battery_level #returns a whole number 
+    @num_of_bird = Bird.all.length
+    @num_of_lime = Lime.all.length
+    @num_of_jump = Jump.all.length
     
   end
 
@@ -31,7 +34,6 @@ class LocationsController < ApplicationController
         format.html { redirect_to new_location_path, notice: 'Please enter a more accurate address'}
       end
     end 
-
   end
 
 end
