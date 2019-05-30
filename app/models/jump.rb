@@ -35,4 +35,8 @@ class Jump < ApplicationRecord
         end 
     end 
 
+    def self.avg_battery_level 
+        Jump.average(:battery_level).round
+    end 
+
 end

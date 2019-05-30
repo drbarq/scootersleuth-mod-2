@@ -63,4 +63,8 @@ class Lime < ApplicationRecord
         end 
     end 
 
+    def self.avg_battery_level     #this returns a hash of the battery levels and count
+        Lime.group(:battery_level).distinct.count
+    end 
+
 end
