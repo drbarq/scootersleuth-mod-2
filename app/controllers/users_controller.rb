@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    Scooter.destroy_all   #destorys the tables so fresh data can be added 
+        #do we need to destroy the individual scooter tables here or in the models?
 
   end
 

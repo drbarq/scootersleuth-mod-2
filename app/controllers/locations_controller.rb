@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
       Jump.merge_table
     end 
 
-    Scooter.destroy_all
+    # Scooter.destroy_all
     @closest_scooters = Scooter.all # acombination of all the closest scooters
 
   end

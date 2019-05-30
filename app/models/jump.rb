@@ -5,7 +5,7 @@ class Jump < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
     def self.get_latest   # get the latest jump bikes based on last location entered
-        Jump.destroy_all
+        # Jump.destroy_all
         
         @response = HTTParty.get('https://den.jumpbikes.com/opendata/free_bike_status.json')
         @data = JSON.parse(@response.body)["data"]["bikes"]
