@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :bird
       t.boolean :lime
       t.boolean :spin
+      t.boolean :jump
 
       t.timestamps
     end

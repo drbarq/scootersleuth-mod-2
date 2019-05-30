@@ -72,4 +72,4 @@ gem "mapquest", "~> 0.0.2"
 
 gem "geocoder", "~> 1.5"
 
-gem "gmaps4rails", "~> 2.1"
+gem "httparty", "~> 0.17.0"

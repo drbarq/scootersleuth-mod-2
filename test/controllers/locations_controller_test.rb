@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class LocationsControllerTest < ActionDispatch::IntegrationTest
+<<<<<<< HEAD
   setup do
     @location = locations(:one)
   end
@@ -45,4 +46,9 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to locations_url
   end
+=======
+  # test "the truth" do
+  #   assert true
+  # end
+>>>>>>> master
 end
