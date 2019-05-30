@@ -1,49 +1,43 @@
-
 <% provide :head_tags do %>
 <!-- app/assets/javascripts/locations.js -->
 <script type="text/javascript" src='/locations.js'></script>
 <meta name='turbolinks-visit-control' content='reload'>
     <script>
-
     document.addEventListener("DOMContentLoaded", function(){
         // scooterlocations()
-        plotMarkers([[39.758362,105.007561]],[[39.758515, -105.00712833333333], [39.758515, -105.00712833333333], [39.758515, -105.00712833333333], [39.758515, -105.00712833333333], [39.75849, -105.00712833333333]],[[39.75848, -105.006958], [39.75810166666667, -105.006958], [39.75810166666667, -105.00725499999999], [39.758383, -105.00724833333334], [39.758383, -105.006903]],[[39.758523, -105.006975], [39.758523, -105.006975], [39.75853, -105.009128], [39.75853, -105.009128], [39.75853, -105.009128]])
-
+        plotMarkers(<%=@birds%>, <%=@limes%>, <%=@jumps%>, <%=@location_lat%>, <%=@location_lng%>)
     });
     </script>
 <% end %>
 
-<ul>
-  <% @closest_scooters.each do |scooter| %>
-     <%= scooter.company %>
-     <%= scooter.latitude %>
+
+<div class="container large text-center">
+  <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
+  <section id="map"></section>
+
+
+  <h3 class="text-center">Scooters Near You:</h3>
+
+  <ul class="scooter_list"><% @closest_scooters.limit(15).each do |scooter| %>
+     <li>Brand: <%= scooter.company %>
+     Location: <%= scooter.latitude %>
      <%= scooter.longitude %>
-     <%= scooter.battery_level %>
-  <% end %>
-</ul>
+     Battery Level: <%= scooter.battery_level %></li>
+     <% end %>
+  </ul>
 
-<p id="notice"><%= notice %></p>
+  <div>
+    Scooters near me: <%= @closest_scooters.count %>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.address %>
-</p>
+  <div>
+    Average Scooter Battery Level: <%= @closest_scooters.count %>
+  </div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
 
-<p>
+  <div class="card-footer footer2">
+    <%= link_to 'Home', users_path %>
+  </div>
 
-    <div id="map"></div>
-
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+</div>

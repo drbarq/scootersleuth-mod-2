@@ -3,68 +3,28 @@
 // All this logic will automatically be available in application.js.
 
 
-// function all_scooters(array){
-//   array.map(scooter => scooterlocations(scooter.latitude, scooter.longitude))
-// }
 
 
-// function scooterlocations(){
-//   map = new google.maps.Map(document.getElementById('map'), {
-//        zoom: 20,
-//        center: {lat: 39, lng: -98}
-//      });
-// }
-//
-// function plotMarkers(array,bird,lime,jump) {
-//   console.log(array,bird,lime,jump)
-//   var myCoords = new google.maps.LatLng(array[0],array[1]);
-//        var mapOptions = {
-//        center: myCoords,
-//        zoom: 14
-//    };
-//   let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-//
-// function plotMarkers(array,bird,lime,jump) {
-//   console.log(array,bird,lime,jump)
-//    array.forEach((coord) => {
-//      var myCoords = new google.maps.LatLng(array[0], array[1]);
-//      var mapOptions = {center: myCoords, zoom:14};
-//      let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-//    })
-
-
-
-function plotMarkers(bird,lime,jump) {
+function plotMarkers(bird,lime,jump, lat, lng) {
   console.log(bird,lime,jump)
-  //initMap(array)
-  let map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: {lat:39.7392, lng: -104.9903}});
+  let map = new google.maps.Map(document.getElementById('map'), {zoom: 17, center: {lat: lat, lng: lng}});
   bird.forEach((coord) => {
-    let infowindow = new google.maps.InfoWindow({content: "bird"});
+    let infowindow = new google.maps.InfoWindow({content: "Bird"});
     let marker = new google.maps.Marker({position: new google.maps.LatLng(coord[0], coord[1]), map: map, animation: google.maps.Animation.DROP});
+    marker.addListener('click', function() {infowindow.open(map, marker)});
   })
   lime.forEach((coord) => {
-    let infowindow = new google.maps.InfoWindow({content: "bird"});
+    let infowindow = new google.maps.InfoWindow({content: "Lime"});
     let marker = new google.maps.Marker({position: new google.maps.LatLng(coord[0], coord[1]), map: map, animation: google.maps.Animation.DROP});
+    marker.addListener('click', function() {infowindow.open(map, marker)});
   })
   jump.forEach((coord) => {
-    let infowindow = new google.maps.InfoWindow({content: "bird"});
+    let infowindow = new google.maps.InfoWindow({content: "Jump"});
     let marker = new google.maps.Marker({position: new google.maps.LatLng(coord[0], coord[1]), map: map, animation: google.maps.Animation.DROP});
+    marker.addListener('click', function() {infowindow.open(map, marker)});
   })
 }
 
-// function initMap(array) {
-//     var myCoords = new google.maps.LatLng(array[0], array[1]);
-//     var mapOptions = {
-//     center: myCoords,
-//     zoom: 14
-//     };
-//     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-//
-//     var marker = new google.maps.Marker({
-//         position: myCoords,
-//         map: map
-//     });
-// }
 
 
 // function dropPins(allPoints){

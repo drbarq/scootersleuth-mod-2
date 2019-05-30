@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ultra&display=swap');
+@import "bootstrap";
+@import "font-awesome";
+
+#map {
+    margin: 0 auto;
+    width: 600px;
+    height: 400px;
+}
+
+body {
+  background-color: #FAFAFA;
+  text-shadow: 1px 1px 1px #CCC;
+}
+
+h3 {
+  margin-top: 1rem;
+}
+
+button {
+  box-shadow: 3px 3px 2px #CCC;
+}
+
+input[type=submit] {
+  box-shadow: 3px 3px 2px #CCC;
+}
+
+// button animation
+// transform: scale(2);
+// opacity: 0;
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  position: fixed;
+  left: 10%;
+  width: 80%;
+  height: 38rem;
+  background-color: #EEE;
+  border-left: 2px solid #DDD;
+  border-right: 2px solid #DDD;
+}
+
+.logo {
+  font-family: 'Ultra', serif;
+  font-style: italic;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 2px #55B;
+}
+
+.bottom_button {
+  position: absolute;
+  top: 28rem;
+  margin-left: 40%;
+}
+
+.users_list {
+  position: absolute;
+  box-sizing: content-box;
+  width: 80%;
+  height: 40%;
+  margin-top: 3rem;
+  margin-left: 8%;
+  background-color: cyan;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 44%;
+}
+
+.footer2 {
+  position: fixed;
+  bottom: 0px;
+  left: 46%;
+}
+
+.user_list_element {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #E9E9E9;
+  border: 1px solid #E5E5E5;
+  box-shadow: 3px 3px 2px #DDD;
+  border-radius: 2px;
+}
+
+.error_style {
+  font-size: 9pt;
+  color: red;
+}
+
+.find_scooter_button {
+  margin-top: 2rem;
+}

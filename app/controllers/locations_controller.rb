@@ -1,41 +1,29 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
-
-  # GET /locations
-  # GET /locations.json
+ before_action :set_location, only: [:show, :edit, :update, :destroy]
   def index
     @locations = Location.all
   end
 
-  # GET /locations/1
-  # GET /locations/1.json
   def show
-    # byebug
-    # take the most recent updated user and find the scooter preferences
-    # if User.last.bird
-    #   Bird.merge_table
-    # end
+    # take the most recent updated user and find the closest scooters based on preferences
+    @closest_scooters = Scooter.populate_scooters   #calls Scooter.populate_scooters on the Scooter controller
 
-    # if User.last.lime
-    #   Lime.merge_table
-    # end
+    @bird_battery = Bird.avg_battery_level #returns a whole number
+    @lime_battery = Lime.avg_battery_level #This returns a hash with the battery level and count
+    @jump_battery = Jump.avg_battery_level #returns a whole number
+    @num_of_bird = Bird.all.length
+    @num_of_lime = Lime.all.length
+    @num_of_jump = Jump.all.length
 
-    # if User.last.jump
-    #   Jump.merge_table
-    # end
+    @birds = Bird.lat_lng_array
+    @limes = Lime.lat_lng_array
+    @jumps = Jump.lat_lng_array
+    @location_lat = Location.last.latitude
+    @location_lng = Location.last.longitude
 
-    @closest_scooters = Scooter.all
-    @scooter_array_for_js = Scooter.all.to_json.gsub!(/\"/,'\'')
-    # byebug
-    # @scooter_parsed = JSON.parse(@scooter_array_for_js)
-  # acombination of all the closests scooters (only lime and bird so far)
-  # grab the most recent scooters and put them in a table
-  # query lime based on location
-  # query bird based on location
-  # scooter model will hold the api calls
-end
 
-  # GET /locations/new
+  end
+
   def new
     @location = Location.new
   end

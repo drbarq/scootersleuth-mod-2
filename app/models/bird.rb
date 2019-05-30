@@ -5,9 +5,7 @@ require 'net/http'
 class Bird < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
-    def self.get_latest #api call to get the latest bird scooters based on last location entered
-        # Bird.destroy_all
-
+    def self.get_latest            #api call to get the latest bird scooters based on last location entered
         latitude = Location.last.latitude
         longitude = Location.last.longitude
 
@@ -52,6 +50,22 @@ class Bird < ApplicationRecord
         Bird.near([Location.last.latitude, Location.last.longitude]).first(5)
     end
 
+    def self.lat_array
+        Bird.closest.map do |scooter|
+            scooter.latitude
+        end
+    end
+
+    def self.lng_array
+        Bird.closest.map do |scooter|
+            scooter.longitude
+        end
+    end
+
+    def self.lat_lng_array
+        Bird.lat_array.zip(Bird.lng_array)
+    end
+
     def self.merge_table       # takes the first 5 entries in the returned closest results and creates new entries in the aggregated scooter table
         Bird.closest.each do |bird_scoot|
             Scooter.create(
@@ -61,6 +75,10 @@ class Bird < ApplicationRecord
                 battery_level: bird_scoot.battery_level
                 )
         end
+    end
+
+    def self.avg_battery_level
+        Bird.average(:battery_level).to_i
     end
 
 end

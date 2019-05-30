@@ -22,16 +22,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :spin %>
-    <%= form.check_box :spin %>
-  </div>
-
-  <div class="field">
     <%= form.label :jump %>
     <%= form.check_box :jump %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Update', :class => 'btn btn-primary btn-large' %>
   </div>
 <% end %>

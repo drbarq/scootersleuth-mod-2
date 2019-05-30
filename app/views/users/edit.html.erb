@@ -1,6 +1,12 @@
-<h1>Editing User</h1>
+<div class="container large text-center">
+  <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
 
-<%= render 'form', user: @user %>
+  <h2>Editing User</h2>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+  <%= render 'form', user: @user %>
+
+  <div class="card-footer footer">
+    | <%= link_to 'Back', user_path(@user) %> |
+    <%= link_to 'Home', users_path %> |
+  </div>
+</div>

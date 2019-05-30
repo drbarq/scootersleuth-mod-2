@@ -5,8 +5,6 @@ class Lime < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
     def self.get_latest           #api call to get the latest lime scooters based on last location entered
-        # Lime.destroy_all
-
         bound = ".2".to_f
         latitude = Location.last.latitude
         longitude = Location.last.longitude
@@ -54,6 +52,22 @@ class Lime < ApplicationRecord
         Lime.near([Location.last.latitude, Location.last.longitude]).first(5)
     end
 
+    def self.lat_array
+        Lime.closest.map do |scooter|
+            scooter.latitude
+        end
+    end
+
+    def self.lng_array
+        Lime.closest.map do |scooter|
+            scooter.longitude
+        end
+    end
+
+    def self.lat_lng_array
+        Lime.lat_array.zip(Lime.lng_array)
+    end
+
     def self.merge_table          # takes the first 5 entries in the returned results and creates new entries in the aggregated table
         Lime.closest.each do |lime_scoot|
             Scooter.create(
@@ -63,6 +77,10 @@ class Lime < ApplicationRecord
                 battery_level: lime_scoot.battery_level
                 )
         end
+    end
+
+    def self.avg_battery_level     #this returns a hash of the battery levels and count
+        Lime.group(:battery_level).distinct.count
     end
 
 end
