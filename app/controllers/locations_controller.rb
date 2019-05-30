@@ -18,14 +18,9 @@ class LocationsController < ApplicationController
       Jump.merge_table
     end 
 
-    
-    @closest_scooters = Scooter.all # acombination of all the closests scooters
+    Scooter.destroy_all
+    @closest_scooters = Scooter.all # acombination of all the closest scooters
 
-
-    # grab the most recent scooters and put them in a table
-    # query lime based on location
-    # query bird based on location
-    # scooter model will hold the api calls
   end
 
   def new
@@ -44,7 +39,6 @@ class LocationsController < ApplicationController
         format.html { redirect_to location_path(:id => Location.last.id)}
       else
         format.html { redirect_to new_location_path, notice: 'Please enter a more accurate address'}
-      
       end
     end 
 
