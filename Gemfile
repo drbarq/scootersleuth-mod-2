@@ -69,7 +69,8 @@ gem "json", "~> 2.2"
 gem "require_all", "~> 2.0"
 
 gem "mapquest", "~> 0.0.2"
-
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
 gem "geocoder", "~> 1.5"
-
+gem "font-awesome-rails"
 gem "httparty", "~> 0.17.0"

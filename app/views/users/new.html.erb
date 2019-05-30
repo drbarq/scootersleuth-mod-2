@@ -1,5 +1,11 @@
-<h1>New User</h1>
+<div class="container large text-center">
+  <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
 
-<%= render 'form', user: @user %>
+  <h2 id="new_user_header">Create New User</h2>
 
-<%= link_to 'Back', users_path %>
+  <div id="new_user_form"><%= render 'form', user: @user %></div>
+
+  <div class="card-footer footer2">
+    | <%= link_to 'Home', users_path %> |
+  </div>
+</div>

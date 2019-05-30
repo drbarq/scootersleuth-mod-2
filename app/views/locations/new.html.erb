@@ -1,12 +1,19 @@
+<div class="container large text-center">
+  <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
 
+  <h2>Enter Your Current Location:</h2>
 
-<h1>Enter Your Current Location:</h1>
-<br>
+  <p id="notice_error" class="error"><%= notice %></p>
 
-<p id="notice_error"><%= notice %></p>
+  <div>
+    <%= form_for :location, url: locations_path do |f| %>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+      <%= f.submit 'Add Location', :class => 'btn btn-primary btn-large' %>
+    <% end %>
+  </div>
 
-  <%= form_for :location, url: locations_path do |f| %>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <%= f.submit %>
-  <% end %>
+  <div class="card-footer footer2">
+    | <%= link_to 'Home', users_path %> |
+  </div>
+</div>
