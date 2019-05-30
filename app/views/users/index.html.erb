@@ -1,14 +1,16 @@
 <div class="container large">
-  <div class="">
-    <h1 class="logo text-center">Welcome to ¤ Scooter Sleuth! ¤</h1>
+  <div class="text-center">
+    <h1 class="logo">¤ Scooter Sleuth ¤</h1>
+    <h4>Welcome to <em>¤ Scooter Sleuth ¤</em>!</h4>
+    <h4>Please select a user or create a new one:</h4>
   </div>
 
-  <div class="row align-items-center users_list">
-    <ul>
+  <div class="users_list">
+    <div>
       <% @users.each do |user| %>
-      <li class="user_list_element"><%= link_to user.full_name, user_path(user.id) %></li>
+      <div class="user_list_element"><%= link_to user.full_name, user_path(user.id) %></div>
       <% end %>
-    </ul>
+    </div>
   </div>
 
   <div class="bottom_button">

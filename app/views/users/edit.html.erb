@@ -1,11 +1,12 @@
 <div class="container large text-center">
-  <h2 class="text-right logo">¤ SCOOTER SLEUTH ¤</h2>
+  <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
 
   <h2>Editing User</h2>
 
   <%= render 'form', user: @user %>
 
   <div class="card-footer footer">
-    <%= link_to 'Home', users_path %>
+    | <%= link_to 'Back', user_path(@user) %> |
+    <%= link_to 'Home', users_path %> |
   </div>
 </div>
