@@ -25,7 +25,7 @@ body {
   background-color: #FAFAFA;
   text-shadow: 1px 1px 1px #CCC;
   background-image: url(asset_path('scooter.png'));
-  background-repeat: repeat;
+  background-repeat: space repeat-y;
 }
 
 h3 {
@@ -72,13 +72,26 @@ ul {
 }
 
 .users_list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
   position: absolute;
   box-sizing: content-box;
   width: 80%;
-  height: 40%;
-  margin-top: 3rem;
+  height: 45%;
   margin-left: 8%;
-  background-color: cyan;
+//  border: 1px solid black;
+}
+
+.user_list_element {
+  width: 20rem;
+  text-align: center;
+  margin: 1rem 80%;
+  padding: 1rem;
+  background-color: #E9E9E9;
+  border: 1px solid #E5E5E5;
+  box-shadow: 3px 3px 2px #DDD;
+  border-radius: 2px;
 }
 
 .footer {
@@ -91,15 +104,6 @@ ul {
   position: fixed;
   bottom: 0px;
   left: 46%;
-}
-
-.user_list_element {
-  padding: 1rem;
-  margin: 1rem;
-  background-color: #E9E9E9;
-  border: 1px solid #E5E5E5;
-  box-shadow: 3px 3px 2px #DDD;
-  border-radius: 2px;
 }
 
 .error_style {

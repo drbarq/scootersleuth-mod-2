@@ -5,7 +5,7 @@
     <h4>Please select a user or create a new one:</h4>
   </div>
 
-  <div class="row users_list">
+  <div class="users_list">
     <div>
       <% @users.each do |user| %>
       <div class="user_list_element"><%= link_to user.full_name, user_path(user.id) %></div>
