@@ -2,9 +2,9 @@ require 'rest-client'
 require 'json'
 require 'mapquest'
 
-
 class Location < ApplicationRecord
-    has_many :favorites
+  has_many :favorites
+  geocoded_by :address
 
   @@mapquest_key = Rails.application.credentials.mapquest
 
@@ -39,9 +39,6 @@ class Location < ApplicationRecord
       coordinates << location[:latLng][:lat]
       coordinates << location[:latLng][:lng]
     end
-    byebug
     coordinates
   end
-
-
 end

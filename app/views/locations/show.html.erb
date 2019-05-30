@@ -1,9 +1,37 @@
-Hello big boi
 
-<ul><% @closest_scooters.each do |scooter| %>
-     <%= scooter.company %>
-     <%= scooter.latitude %>
-     <%= scooter.longitude %>
-     <%= scooter.battery_level %>
-<% end %></ul>
+<% provide :head_tags do %>
+<!-- app/assets/javascripts/locations.js -->
+<script type="text/javascript" src='/locations.js'></script>
+<meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@location.latitude%>, <%=@location.longitude%>)
+    });
+    </script>
+<% end %>
 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @location.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @location.longitude %>
+</p>
+
+<p>
+
+    <div id="map"></div>
+
+</p>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
