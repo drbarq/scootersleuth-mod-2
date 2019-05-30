@@ -16,9 +16,16 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// html {
+//   background-image: url(asset_path('scooter.png'));
+//   background-repeat: repeat-x;
+// }
+
 body {
   background-color: #FAFAFA;
   text-shadow: 1px 1px 1px #CCC;
+  background-image: url(asset_path('scooter.png'));
+  background-repeat: repeat;
 }
 
 h3 {
@@ -102,4 +109,10 @@ ul {
 
 .find_scooter_button {
   margin-top: 2rem;
+}
+
+.logo_text {
+  font-family: 'Ultra', serif;
+  font-style: italic;
+  text-shadow: 1px 1px 1px #55B;
 }
