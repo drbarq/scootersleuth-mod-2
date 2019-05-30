@@ -1,7 +1,7 @@
 <div class="container large text-center">
   <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
 
-  <p id="notice"><%= notice %></p>
+  <p id="notice" class="notice_good"><%= notice %></p>
 
   <h2>Welcome <%= "#{@user.full_name}" %>!</h2>
 
@@ -15,8 +15,9 @@
   <!--  using a button to link to the locations new page -->
   <button f.submit onclick="window.location.href='/locations/new'" class="find_scooter_button btn btn-primary btn-lg">Lets Find Some Scooters!</button>
 
-  <div class="card-footer footer">
+  <div class="card-footer footer3">
     | <%= link_to 'Edit', edit_user_path(@user) %> |
     <%= link_to 'Home', users_path %> |
+    <%= link_to 'Delete', user_path(@user), method: :delete %> |
   </div>
 </div>
