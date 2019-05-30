@@ -5,8 +5,6 @@ class Lime < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
     def self.get_latest           #api call to get the latest lime scooters based on last location entered
-        # Lime.destroy_all
-
         bound = ".2".to_f
         latitude = Location.last.latitude
         longitude = Location.last.longitude
