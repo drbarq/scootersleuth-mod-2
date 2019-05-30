@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    # byebug
     # take the most recent updated user and find the scooter preferences
     if User.last.bird
       Bird.merge_table

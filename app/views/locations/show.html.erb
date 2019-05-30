@@ -7,8 +7,20 @@
     document.addEventListener("DOMContentLoaded", function(){
         initMap(<%=@location.latitude%>, <%=@location.longitude%>)
     });
+    document.addEventListener("DOMContentLoaded", function(){
+        scooterlocations(<%=@closest_scooters.first.latitude%>, <%=@closest_scooters.first.longitude%>)
+    });
     </script>
 <% end %>
+
+<ul>
+  <% @closest_scooters.each do |scooter| %>
+     <%= scooter.company %>
+     <%= scooter.latitude %>
+     <%= scooter.longitude %>
+     <%= scooter.battery_level %>
+  <% end %>
+</ul>
 
 <p id="notice"><%= notice %></p>
 
