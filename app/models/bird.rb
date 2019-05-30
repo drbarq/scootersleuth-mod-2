@@ -60,5 +60,9 @@ class Bird < ApplicationRecord
                 )
         end 
     end 
+    
+    def self.avg_battery_level 
+        Bird.average(:battery_level).round
+    end 
 
 end

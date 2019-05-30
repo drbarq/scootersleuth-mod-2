@@ -6,6 +6,11 @@ class LocationsController < ApplicationController
   def show
     # take the most recent updated user and find the closest scooters based on preferences
     @closest_scooters = Scooter.populate_scooters   #calls Scooter.populate_scooters on the Scooter controller
+
+    @bird_battery = Bird.avg_battery_level #returns a whole number
+    @lime_battery = Lime.avg_battery_level #This returns a hash with the battery level and count
+    @jump_battery = Jump.avg_battery_level #returns a whole number 
+    
   end
 
   def new
