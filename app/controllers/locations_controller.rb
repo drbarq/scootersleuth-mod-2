@@ -4,23 +4,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    # take the most recent updated user and find the scooter preferences
-    
-    if User.last.bird 
-      Bird.merge_table
-    end 
-
-    if User.last.lime
-      Lime.merge_table
-    end 
-
-    if User.last.jump 
-      Jump.merge_table
-    end 
-
-    # Scooter.destroy_all
-    @closest_scooters = Scooter.all # acombination of all the closest scooters
-
+    # take the most recent updated user and find the closest scooters based on preferences
+    @closest_scooters = Scooter.populate_scooters   #calls Scooter.populate_scooters on the Scooter controller
   end
 
   def new

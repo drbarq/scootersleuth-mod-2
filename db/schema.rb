@@ -66,22 +66,12 @@ ActiveRecord::Schema.define(version: 2019_05_29_211941) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "spins", force: :cascade do |t|
-    t.string "company"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "battery_level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.boolean "bird"
     t.boolean "lime"
-    t.boolean "spin"
     t.boolean "jump"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
