@@ -22,7 +22,7 @@
 // }
 
 body {
-  background-color: #FAFAFA;
+  background-color: #FFFFFA;
   text-shadow: 1px 1px 1px #CCC;
   background-image: url(asset_path('scooter.png'));
   background-repeat: space repeat-y;
@@ -53,7 +53,7 @@ ul {
   left: 10%;
   width: 80%;
   height: 38rem;
-  background-color: #EEE;
+  background-color: #EEEEF2F7;
   border-left: 2px solid #DDD;
   border-right: 2px solid #DDD;
 }
@@ -104,6 +104,12 @@ ul {
   position: fixed;
   bottom: 0px;
   left: 46%;
+}
+
+.footer3 {
+  position: fixed;
+  bottom: 0px;
+  left: 42%;
 }
 
 .error_style {
