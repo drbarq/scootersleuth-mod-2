@@ -33,24 +33,15 @@ class Location < ApplicationRecord
     end
   end
 
-<<<<<<< HEAD
-=======
   #I think we can delete?
->>>>>>> master
   def self.get_lat_long
     coordinates = []
     @@data.locations.each do |location|
       coordinates << location[:latLng][:lat]
       coordinates << location[:latLng][:lng]
     end
-<<<<<<< HEAD
+
     coordinates
   end
-=======
-    byebug
-    coordinates
-  end
-
-
->>>>>>> master
+  
 end

@@ -4,11 +4,11 @@
 <script type="text/javascript" src='/locations.js'></script>
 <meta name='turbolinks-visit-control' content='reload'>
     <script>
+
     document.addEventListener("DOMContentLoaded", function(){
-        initMap(<%=@location.latitude%>, <%=@location.longitude%>)
-    });
-    document.addEventListener("DOMContentLoaded", function(){
-        scooterlocations(<%=@closest_scooters.first.latitude%>, <%=@closest_scooters.first.longitude%>)
+        // scooterlocations()
+        plotMarkers([[39.758362,105.007561]],[[39.758515, -105.00712833333333], [39.758515, -105.00712833333333], [39.758515, -105.00712833333333], [39.758515, -105.00712833333333], [39.75849, -105.00712833333333]],[[39.75848, -105.006958], [39.75810166666667, -105.006958], [39.75810166666667, -105.00725499999999], [39.758383, -105.00724833333334], [39.758383, -105.006903]],[[39.758523, -105.006975], [39.758523, -105.006975], [39.75853, -105.009128], [39.75853, -105.009128], [39.75853, -105.009128]])
+
     });
     </script>
 <% end %>

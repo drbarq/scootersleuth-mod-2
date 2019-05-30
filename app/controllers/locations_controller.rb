@@ -12,19 +12,22 @@ class LocationsController < ApplicationController
   def show
     # byebug
     # take the most recent updated user and find the scooter preferences
-    if User.last.bird
-      Bird.merge_table
-    end
+    # if User.last.bird
+    #   Bird.merge_table
+    # end
 
-    if User.last.lime
-      Lime.merge_table
-    end
+    # if User.last.lime
+    #   Lime.merge_table
+    # end
 
-    if User.last.jump
-      Jump.merge_table
-    end
+    # if User.last.jump
+    #   Jump.merge_table
+    # end
 
     @closest_scooters = Scooter.all
+    @scooter_array_for_js = Scooter.all.to_json.gsub!(/\"/,'\'')
+    # byebug
+    # @scooter_parsed = JSON.parse(@scooter_array_for_js)
   # acombination of all the closests scooters (only lime and bird so far)
   # grab the most recent scooters and put them in a table
   # query lime based on location
