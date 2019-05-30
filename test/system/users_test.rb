@@ -19,7 +19,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "First name", with: @user.first_name
     fill_in "Last name", with: @user.last_name
     check "Lime" if @user.lime
-    check "Spin" if @user.spin
+    check "Jump" if @user.jump
     click_on "Create User"
 
     assert_text "User was successfully created"
@@ -35,7 +35,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "First name", with: @user.first_name
     fill_in "Last name", with: @user.last_name
     check "Lime" if @user.lime
-    check "Spin" if @user.spin
+    check "Jump" if @user.jump
     click_on "Update User"
 
     assert_text "User was successfully updated"

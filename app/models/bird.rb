@@ -50,6 +50,22 @@ class Bird < ApplicationRecord
         Bird.near([Location.last.latitude, Location.last.longitude]).first(5)
     end 
 
+    def self.lat_array 
+        Bird.closest.map do |scooter|
+            scooter.latitude
+        end 
+    end 
+
+    def self.lng_array 
+        Bird.closest.map do |scooter|
+            scooter.longitude
+        end 
+    end 
+
+    def self.lat_lng_array 
+        Bird.lat_array.zip(Bird.lng_array)
+    end 
+
     def self.merge_table       # takes the first 5 entries in the returned closest results and creates new entries in the aggregated scooter table
         Bird.closest.each do |bird_scoot|
             Scooter.create(

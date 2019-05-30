@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  describe User do
+  RSpec.describe User do
     let(:attributes) do
       {
         first_name: "John",
