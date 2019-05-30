@@ -6,7 +6,7 @@ one:
   email: MyString
   bird: false
   lime: false
-  spin: false
+
 
 two:
   first_name: MyString
@@ -14,4 +14,4 @@ two:
   email: MyString
   bird: false
   lime: false
-  spin: false
+

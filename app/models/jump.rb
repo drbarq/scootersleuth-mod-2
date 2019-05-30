@@ -24,6 +24,22 @@ class Jump < ApplicationRecord
         Jump.near([Location.last.latitude, Location.last.longitude]).first(5)
     end
 
+    def self.lat_array 
+        Jump.closest.map do |scooter|
+            scooter.latitude
+        end 
+    end 
+
+    def self.lng_array 
+        Jump.closest.map do |scooter|
+            scooter.longitude
+        end 
+    end 
+
+    def self.lat_lng_array 
+        Jump.lat_array.zip(Jump.lng_array)
+    end 
+
     def self.merge_table              # takes the first 5 entries in the returned closest results and creates new entries in the aggregated scooter table
         Jump.closest.each do |jump_scoot|
             Scooter.create(
@@ -34,9 +50,9 @@ class Jump < ApplicationRecord
                 )
         end
     end
-
-    def self.avg_battery_level
+  
+    def self.avg_battery_level 
         Jump.average(:battery_level).to_i
-    end
+    end 
 
 end
