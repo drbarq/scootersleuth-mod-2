@@ -1,6 +1,7 @@
 class Jump < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
+
     def self.closest 
         Jump.near([Location.last.latitude, Location.last.longitude]).first(5)
     end 

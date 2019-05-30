@@ -1,6 +1,6 @@
 class Bird < ApplicationRecord
     geocoded_by [:latitude, :longitude]
-    
+
     def self.closest
         Bird.near([Location.last.latitude, Location.last.longitude]).first(5)
     end 
