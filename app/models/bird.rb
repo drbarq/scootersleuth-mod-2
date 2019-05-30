@@ -5,7 +5,6 @@ require 'net/http'
 class Bird < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
-
     def self.get_latest #api call to get the latest bird.
         latitude = Location.last.latitude
         longitude = Location.last.longitude

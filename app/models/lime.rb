@@ -4,10 +4,8 @@ class Lime < ApplicationRecord
     # Lime.near([39.758596, -105.007265])
     # Jump.near([39.758596, -105.007265]).first(5)
 
-
     def self.closest
-        # pass in value of number of scooters needed
-        Lime.first(5)
+        Lime.near([Location.last.latitude, Location.last.longitude]).first(5)
     end 
 
     def self.merge_table # takes the first 5 entries in the returned results and creates new entries in the aggregated table
