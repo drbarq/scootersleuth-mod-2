@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
 
   def show
     # take the most recent updated user and find the scooter preferences
+    
     if User.last.bird 
       Bird.merge_table
     end 

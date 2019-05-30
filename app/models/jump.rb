@@ -1,8 +1,23 @@
 class Jump < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
+    def self.get_latest
+        @response = HTTParty.get('https://den.jumpbikes.com/opendata/free_bike_status.json')
+        @data = JSON.parse(@response.body)["data"]["bikes"]
+    end 
+    
+    def self.create_scooter
+        Jump.get_latest.each do |bike|  
+            Jump.create(company: "Jump", 
+            latitude: bike["lat"], 
+            longitude: bike["lon"], 
+            battery_level: bike["jump_ebike_battery_level"])
+        end
+    end 
 
     def self.closest 
+        Jump.create_scooter
+
         Jump.near([Location.last.latitude, Location.last.longitude]).first(5)
     end 
 
@@ -16,7 +31,5 @@ class Jump < ApplicationRecord
                 )
         end 
     end 
-
-
 
 end
