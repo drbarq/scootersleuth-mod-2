@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    Scooter.destroy_all   #destorys the tables so fresh data can be added 
-        #do we need to destroy the individual scooter tables here or in the models?
+    Scooter.destroy_all   #destroys the tables so fresh data can be added after the address step
+    Lime.destroy_all 
+    Jump.destroy_all 
+    Bird.destroy_all 
 
   end
 
@@ -72,6 +74,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :bird, :lime, :spin, :jump)
+      params.require(:user).permit(:first_name, :last_name, :email, :bird, :lime, :jump)
     end
 end

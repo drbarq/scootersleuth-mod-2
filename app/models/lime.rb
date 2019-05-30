@@ -5,8 +5,6 @@ class Lime < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
     def self.get_latest           #api call to get the latest lime scooters based on last location entered
-        # Lime.destroy_all
-
         bound = ".2".to_f
         latitude = Location.last.latitude
         longitude = Location.last.longitude
@@ -63,6 +61,10 @@ class Lime < ApplicationRecord
                 battery_level: lime_scoot.battery_level
                 )
         end 
+    end 
+
+    def self.avg_battery_level     #this returns a hash of the battery levels and count
+        Lime.group(:battery_level).distinct.count
     end 
 
 end

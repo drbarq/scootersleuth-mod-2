@@ -5,9 +5,7 @@ require 'net/http'
 class Bird < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
-    def self.get_latest #api call to get the latest bird scooters based on last location entered
-        # Bird.destroy_all  
-
+    def self.get_latest            #api call to get the latest bird scooters based on last location entered
         latitude = Location.last.latitude
         longitude = Location.last.longitude
 
@@ -61,6 +59,10 @@ class Bird < ApplicationRecord
                 battery_level: bird_scoot.battery_level
                 )
         end 
+    end 
+    
+    def self.avg_battery_level 
+        Bird.average(:battery_level).round
     end 
 
 end

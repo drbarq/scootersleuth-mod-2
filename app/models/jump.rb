@@ -5,8 +5,6 @@ class Jump < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
     def self.get_latest   # get the latest jump bikes based on last location entered
-        # Jump.destroy_all
-        
         @response = HTTParty.get('https://den.jumpbikes.com/opendata/free_bike_status.json')
         @data = JSON.parse(@response.body)["data"]["bikes"]
     end 
@@ -35,6 +33,10 @@ class Jump < ApplicationRecord
                 battery_level: jump_scoot.battery_level
                 )
         end 
+    end 
+
+    def self.avg_battery_level 
+        Jump.average(:battery_level).round
     end 
 
 end
