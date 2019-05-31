@@ -45,6 +45,6 @@ Chris Tero [[GitHub ]](https://github.com/takeastand)
 Joe Tustin [[GitHub]](https://github.com/drbarq) [[Linkedin]](https://www.linkedin.com/in/joetustin/)
 
 
-## License
+## LICENSE
 
 [MIT](https://choosealicense.com/licenses/mit/)
