@@ -53,15 +53,11 @@ class Lime < ApplicationRecord
     end
 
     def self.lat_array
-        Lime.closest.map do |scooter|
-            scooter.latitude
-        end
+        Lime.closest.map {|scooter| scooter.latitude }
     end
 
     def self.lng_array
-        Lime.closest.map do |scooter|
-            scooter.longitude
-        end
+        Lime.closest.map {|scooter| scooter.longitude }
     end
 
     def self.lat_lng_array
