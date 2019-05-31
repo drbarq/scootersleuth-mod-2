@@ -1,15 +1,16 @@
-# 🛴🕵🏻‍♂️ Scooter Sleuth 🛴🕵🏻‍♀️ 
+# 🛴🕵🏻‍♂️ Scooter Sleuth 🛴🕵🏻‍♀️
 
 We put a man on the moon but still need to switch between apps to find the closest electric scooter.  Not anymore!!
-Sooter Sleuth aggregates scooter share apps into one map rendered based on the users location and available scooters. 
+Sooter Sleuth aggregates scooter share apps into one map rendered based on the users location and available scooters.
 
 
 ## PREREQUISITES & INSTALLATION
 - Fork 🍴
-- Clone 
-- ``` bundle install ``` 
+- Clone
+- ``` bundle install ```
+- ``` rails db:migrate ```
 
-The app uses api keys which are stored within the encrypted Rails files.  Contact the team for access. 
+The app uses api keys which are stored within the encrypted Rails files.  Contact the team for access.
 
 ## USAGE
 To find scooters close to you, first sign into that app by creating a new user.  
@@ -18,17 +19,22 @@ Select the scooters that you want by checking and unchecking the respective boxe
 
 Upon entering the address of your current location we verify it via the MapQuest API endpoint.  If the address isn't accurate enough we will ask you to try again.  
 
-Once the address is verified it will be converted into GPS coordinates.  The coordinates are then sent to each scooter company in the form of an API request. 
+Once the address is verified it will be converted into GPS coordinates.  The coordinates are then sent to each scooter company in the form of an API request.
 
-After receiving all of the available scooters are found we determine which scooters are closest by using the Haversine formula. 
+After receiving all of the available scooters are found we determine which scooters are closest by using the Haversine formula.
 
-Then rendering those scooters on the map. 
+Then rendering those scooters on the map.
 
 
 ## CONTRIBUTING
 
 Alex Hare [[GitHub]](https://github.com/ahare14)
 
-Chris Tero [[GitHub ]](https://github.com/takeastand) 
+Chris Tero [[GitHub ]](https://github.com/takeastand)
 
 Joe Tustin [[GitHub]](https://github.com/drbarq) [[Linkedin]](https://www.linkedin.com/in/joetustin/)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
