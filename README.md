@@ -1,7 +1,7 @@
 # 🛴🕵🏻‍♂️ Scooter Sleuth 🛴🕵🏻‍♀️ 
 
 We put a man on the moon but still need to switch between apps to find the closest electric scooter.  Not anymore!!
-Sooter Sleuth aggregates scooter share apps into one google maps rendered based on the users location. 
+Sooter Sleuth aggregates scooter share apps into one map rendered based on the users location and available scooters. 
 
 
 ## PREREQUISITES & INSTALLATION
@@ -14,7 +14,7 @@ The app uses api keys which are stored within the encrypted Rails files.  Contac
 ## USAGE
 To find scooters close to you, first sign into that app by creating a new user.  
 
-By selecting the scooters companies this tells the  🛴🕵🏻‍♂️ Scooter Sleuth 🛴🕵🏻‍♀️  which companies too sleuth.  
+Select the scooters that you want by checking and unchecking the respective boxes.  This tells the  🛴🕵🏻‍♂️ Scooter Sleuth 🛴🕵🏻‍♀️  which companies too sleuth.  
 
 Upon entering the address of your current location we verify it via the MapQuest API endpoint.  If the address isn't accurate enough we will ask you to try again.  
 
