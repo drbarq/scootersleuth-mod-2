@@ -25,6 +25,7 @@
 
 body {
   background-color: #FFFFFA;
+  color: #444;
   text-shadow: 1px 1px 1px #CCC;
   background-image: url(asset_path('scooter.png'));
   background-repeat: space repeat-y;
@@ -54,10 +55,11 @@ ul {
   position: fixed;
   left: 10%;
   width: 80%;
-  height: 38rem;
+  height: 36rem;
+  top: 5%;
   background-color: #EEEEF2F7;
-  border-left: 2px solid #DDD;
-  border-right: 2px solid #DDD;
+  border: 2px solid #DDD;
+  border-radius: 5px;
 }
 
 .logo {
@@ -96,22 +98,25 @@ ul {
   border-radius: 2px;
 }
 
+.header {
+  position: fixed;
+  top: 5.2%;
+  left: 10.1%;
+  background-color: #CCC;
+  border: 2px solid #DDD;
+  border-radius: 5px;
+}
+
 .footer {
   position: fixed;
-  bottom: 0px;
-  left: 44%;
-}
-
-.footer2 {
-  position: fixed;
-  bottom: 0px;
-  left: 46%;
-}
-
-.footer3 {
-  position: fixed;
-  bottom: 0px;
-  left: 42%;
+  font-size: 12pt;
+  width: 80%;
+  height: 8%;
+  bottom: 5.2%;
+  left: 10%;
+  background-color: #CCC;
+  border: 2px solid #DDD;
+  border-radius: 5px;
 }
 
 .error_style {
@@ -121,7 +126,7 @@ ul {
 
 .notice_good {
   font-size: 9pt;
-  color: green;  
+  color: green;
 }
 
 .find_scooter_button {
@@ -132,4 +137,17 @@ ul {
   font-family: 'Ultra', serif;
   font-style: italic;
   text-shadow: 1px 1px 1px #55B;
+}
+
+.col1 {
+  border-right: 1px solid #AAA;
+}
+
+.col2 {
+  border-left: 1px solid #AAA;
+  border-right: 1px solid #AAA;
+}
+
+.col3 {
+  border-left: 1px solid #AAA;
 }

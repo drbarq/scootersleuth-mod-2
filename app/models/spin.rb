@@ -1,2 +1,0 @@
-class Spin < ApplicationRecord
-end

@@ -8,9 +8,14 @@ class LocationsController < ApplicationController
     # take the most recent updated user and find the closest scooters based on preferences
     @closest_scooters = Scooter.populate_scooters   #calls Scooter.populate_scooters on the Scooter controller
 
+    @birds = Bird.lat_lng_array 
+    @limes = Lime.lat_lng_array 
+    @jumps = Jump.lat_lng_array 
+
     @bird_battery = Bird.avg_battery_level #returns a whole number
-    @lime_battery = Lime.avg_battery_level #This returns a hash with the battery level and count
-    @jump_battery = Jump.avg_battery_level #returns a whole number
+    @lime_battery = Lime.avg_battery_num   #returns a whole number
+    @jump_battery = Jump.avg_battery_level #returns a whole number 
+
     @num_of_bird = Bird.all.length
     @num_of_lime = Lime.all.length
     @num_of_jump = Jump.all.length
