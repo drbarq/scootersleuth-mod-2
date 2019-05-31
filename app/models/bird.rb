@@ -61,7 +61,7 @@ class Bird < ApplicationRecord
         Bird.lat_array.zip(Bird.lng_array)
     end
 
-    def self.merge_table       # takes the first 5 entries in the returned closest results and creates new entries in the aggregated scooter table
+    def self.merge_table       # takes the first 10 entries in the returned closest results and creates new entries in the aggregated scooter table
         Bird.closest.each do |bird_scoot|
             Scooter.create(
                 company: bird_scoot.company,
