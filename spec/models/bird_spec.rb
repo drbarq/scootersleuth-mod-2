@@ -14,3 +14,14 @@ RSpec.describe Bird, type: :model do
     expect(Bird.new(attributes)).to be_valid
   end
 end
+
+describe 'Bird' do
+ before do
+   @lab = Bird.create(company: "Bird")
+ end
+
+ it 'has a name' do
+   expect(Bird.find_by(company: "Bird")).to eq(@lab)
+ end
+
+end

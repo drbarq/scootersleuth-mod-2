@@ -14,3 +14,14 @@ RSpec.describe Jump, type: :model do
     expect(Jump.new(attributes)).to be_valid
   end
 end
+
+describe 'Jump' do
+ before do
+   @lab = Jump.create(company: "Jump")
+ end
+
+ it 'has a name' do
+   expect(Jump.find_by(company: "Jump")).to eq(@lab)
+ end
+
+end

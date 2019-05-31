@@ -14,3 +14,14 @@ RSpec.describe Lime, type: :model do
     expect(Lime.new(attributes)).to be_valid
   end
 end
+
+describe 'Lime' do
+ before do
+   @lab = Lime.create(company: "Lime")
+ end
+
+ it 'has a name' do
+   expect(Lime.find_by(company: "Lime")).to eq(@lab)
+ end
+
+end
