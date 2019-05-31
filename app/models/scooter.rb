@@ -3,21 +3,21 @@ class Scooter < ApplicationRecord
 
   def self.populate_scooters
 
-    if User.last.bird 
+    if User.last.bird
       Bird.merge_table
-    end 
+    end
 
     if User.last.lime
       Lime.merge_table
-    end 
+    end
 
-    if User.last.jump 
+    if User.last.jump
       Jump.merge_table
-    end 
+    end
 
     Scooter.all # acombination of all the closest scooters
 
-  end 
-  
+  end
+
 
 end

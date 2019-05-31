@@ -50,21 +50,21 @@ class Bird < ApplicationRecord
         Bird.near([Location.last.latitude, Location.last.longitude]).first(5)
     end
 
-    def self.lat_array 
+    def self.lat_array
         Bird.closest.map do |scooter|
             scooter.latitude
-        end 
-    end 
+        end
+    end
 
-    def self.lng_array 
+    def self.lng_array
         Bird.closest.map do |scooter|
             scooter.longitude
-        end 
-    end 
+        end
+    end
 
-    def self.lat_lng_array 
+    def self.lat_lng_array
         Bird.lat_array.zip(Bird.lng_array)
-    end 
+    end
 
     def self.merge_table       # takes the first 5 entries in the returned closest results and creates new entries in the aggregated scooter table
         Bird.closest.each do |bird_scoot|
@@ -74,10 +74,11 @@ class Bird < ApplicationRecord
                 longitude: bird_scoot.longitude,
                 battery_level: bird_scoot.battery_level
                 )
-        end 
-    end 
-    
-    def self.avg_battery_level 
+        end
+    end
+
+    def self.avg_battery_level
         Bird.average(:battery_level).to_i
-    end 
+    end
+
 end

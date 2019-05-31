@@ -16,10 +16,12 @@
 @import "bootstrap";
 @import "font-awesome";
 
-// html {
-//   background-image: url(asset_path('scooter.png'));
-//   background-repeat: repeat-x;
-// }
+
+#map {
+    margin: 0 auto;
+    width: 600px;
+    height: 400px;
+}
 
 body {
   background-color: #FFFFFA;

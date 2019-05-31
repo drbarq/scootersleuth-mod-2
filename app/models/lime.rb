@@ -10,7 +10,7 @@ class Lime < ApplicationRecord
         longitude = Location.last.longitude
         ne_lat = latitude - bound
         ne_lng = longitude - bound
-        sw_lat = latitude + bound 
+        sw_lat = latitude + bound
         sw_lng = longitude + bound
         @key = Rails.application.credentials.postman_lime
 
@@ -34,54 +34,54 @@ class Lime < ApplicationRecord
                     end
 
         jsonresponse = JSON.parse(response.body)["data"]["attributes"]["bikes"]
-     
-    end 
+
+    end
 
     def self.create_scooter     #create new lime scooter objects with returned data
         Lime.get_latest.each do |scooter|
             Lime.create(company: "Lime",
-                latitude: scooter["attributes"]["latitude"], 
-                longitude: scooter["attributes"]["longitude"], 
+                latitude: scooter["attributes"]["latitude"],
+                longitude: scooter["attributes"]["longitude"],
                 battery_level: scooter["attributes"]["battery_level"])
-        end 
-    end 
+        end
+    end
 
-    def self.closest             #find the closest scooters to the user based on location gps info 
+    def self.closest             #find the closest scooters to the user based on location gps info
         Lime.create_scooter
 
         Lime.near([Location.last.latitude, Location.last.longitude]).first(5)
-    end 
+    end
 
-    def self.lat_array 
+    def self.lat_array
         Lime.closest.map do |scooter|
             scooter.latitude
-        end 
-    end 
+        end
+    end
 
-    def self.lng_array 
+    def self.lng_array
         Lime.closest.map do |scooter|
             scooter.longitude
-        end 
-    end 
+        end
+    end
 
-    def self.lat_lng_array 
+    def self.lat_lng_array
         Lime.lat_array.zip(Lime.lng_array)
-    end 
+    end
 
     def self.merge_table          # takes the first 5 entries in the returned results and creates new entries in the aggregated table
         Lime.closest.each do |lime_scoot|
             Scooter.create(
-                company: lime_scoot.company, 
-                latitude: lime_scoot.latitude, 
-                longitude: lime_scoot.longitude, 
+                company: lime_scoot.company,
+                latitude: lime_scoot.latitude,
+                longitude: lime_scoot.longitude,
                 battery_level: lime_scoot.battery_level
                 )
-        end 
-    end 
+        end
+    end
 
     def self.avg_battery_level     #this returns a hash of the battery levels and count
         Lime.group(:battery_level).distinct.count
-    end 
+    end
 
     def self.avg_battery_num       # this returns a number for the average 
         battery_score = 0

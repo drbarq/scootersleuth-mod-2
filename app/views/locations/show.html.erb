@@ -1,9 +1,23 @@
+<% provide :head_tags do %>
+<!-- app/assets/javascripts/locations.js -->
+<script type="text/javascript" src='/locations.js'></script>
+<meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // scooterlocations()
+        plotMarkers(<%=@birds%>, <%=@limes%>, <%=@jumps%>, <%=@location_lat%>, <%=@location_lng%>)
+    });
+    </script>
+<% end %>
+
+
 <div class="container large text-center">
   <div class="card-footer header">
     <%= link_to 'Home', users_path %>
   </div>
 
   <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
+  <section id="map"></section>
 
 
   <h3 class="text-center">Scooters Near You:</h3>
