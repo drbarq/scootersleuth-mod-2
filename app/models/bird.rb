@@ -1,7 +1,6 @@
 require 'uri'
 require 'net/http'
 
-
 class Bird < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
@@ -51,15 +50,11 @@ class Bird < ApplicationRecord
     end
 
     def self.lat_array
-        Bird.closest.map do |scooter|
-            scooter.latitude
-        end
+        Bird.closest.map {|scooter| scooter.latitude}
     end
 
     def self.lng_array
-        Bird.closest.map do |scooter|
-            scooter.longitude
-        end
+        Bird.closest.map {|scooter| scooter.longitude}
     end
 
     def self.lat_lng_array

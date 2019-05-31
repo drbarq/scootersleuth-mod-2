@@ -1,6 +1,5 @@
 require 'httparty'
 
-
 class Jump < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
@@ -25,15 +24,11 @@ class Jump < ApplicationRecord
     end
 
     def self.lat_array
-        Jump.closest.map do |scooter|
-            scooter.latitude
-        end
+        Jump.closest.map {|scooter| scooter.latitude}
     end
 
     def self.lng_array
-        Jump.closest.map do |scooter|
-            scooter.longitude
-        end
+        Jump.closest.map {|scooter| scooter.longitude}
     end
 
     def self.lat_lng_array
