@@ -53,15 +53,11 @@ class Lime < ApplicationRecord
     end
 
     def self.lat_array
-        Lime.closest.map do |scooter|
-            scooter.latitude
-        end
+        Lime.closest.map {|scooter| scooter.latitude }
     end
 
     def self.lng_array
-        Lime.closest.map do |scooter|
-            scooter.longitude
-        end
+        Lime.closest.map {|scooter| scooter.longitude }
     end
 
     def self.lat_lng_array
@@ -85,6 +81,22 @@ class Lime < ApplicationRecord
 
     end
 
+    def self.avg_battery_num       # this returns a number for the average
+        battery_score = 0
+        high = 80
+        med = 55
+        low = 20
 
+        Lime.avg_battery_level.each do |level|
+            if level[0] == "high"
+                battery_score += high * level[1]
+            elsif level[0] == "medium"
+                battery_score += med * level[1]
+            elsif level[0] == "low"
+                battery_score += low * level[1]
+            end
+        end
+        num = battery_score / Lime.all.length
+    end
 
 end

@@ -8,19 +8,21 @@ class LocationsController < ApplicationController
     # take the most recent updated user and find the closest scooters based on preferences
     @closest_scooters = Scooter.populate_scooters   #calls Scooter.populate_scooters on the Scooter controller
 
+    #average battery for scooters in the field
     @bird_battery = Bird.avg_battery_level #returns a whole number
-    @lime_battery = Lime.avg_battery_level #This returns a hash with the battery level and count
-    @jump_battery = Jump.avg_battery_level #returns a whole number
+    @lime_battery = Lime.avg_battery_num   #returns a whole number
+    @jump_battery = Jump.avg_battery_level #returns a whole number 
+    #dynamic number of scooters in area
     @num_of_bird = Bird.all.length
     @num_of_lime = Lime.all.length
     @num_of_jump = Jump.all.length
-
+    #Lat and lng for dynamic scooter placement 
     @birds = Bird.lat_lng_array
     @limes = Lime.lat_lng_array
     @jumps = Jump.lat_lng_array
+    #User location for dynamic google map render 
     @location_lat = Location.last.latitude
     @location_lng = Location.last.longitude
-
 
   end
 
@@ -46,7 +48,6 @@ class LocationsController < ApplicationController
         format.html { redirect_to location_path(:id => Location.last.id)}
       else
         format.html { redirect_to new_location_path, notice: 'Please enter a more accurate address'}
-
       end
     end
 

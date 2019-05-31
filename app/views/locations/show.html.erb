@@ -12,32 +12,29 @@
 
 
 <div class="container large text-center">
+  <div class="card-footer header">
+    <%= link_to 'Home', users_path %>
+  </div>
+
   <h3 class="text-right logo">¤ SCOOTER SLEUTH ¤</h3>
+   <h3 class="text-center">Scooters Near You:</h3>
   <section id="map"></section>
 
-
-  <h3 class="text-center">Scooters Near You:</h3>
-
-  <ul class="scooter_list"><% @closest_scooters.limit(15).each do |scooter| %>
-     <li>Brand: <%= scooter.company %>
-     Location: <%= scooter.latitude %>
-     <%= scooter.longitude %>
-     Battery Level: <%= scooter.battery_level %></li>
-     <% end %>
-  </ul>
-
-  <div>
-    Scooters near me: <%= @closest_scooters.count %>
-  </div>
-
-  <div>
-    Average Scooter Battery Level: <%= @closest_scooters.count %>
-  </div>
-
-
-
-  <div class="card-footer footer2">
-    <%= link_to 'Home', users_path %>
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm col1">
+        Bird scooters near me: <%= @num_of_bird %></br>
+        Average Bird battery level: <%= @bird_battery %>
+      </div>
+      <div class="col-sm col2">
+        Jump bikes near me: <%= @num_of_jump %></br>
+        Average Jump battery level: <%= @jump_battery %>
+      </div>
+      <div class="col-sm col3">
+        Lime scooters near me: <%= @num_of_lime %></br>
+        Average Lime battery level: <%= @lime_battery %>
+      </div>
+    </div>
   </div>
 
 </div>
