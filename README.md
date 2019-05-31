@@ -1,4 +1,4 @@
-# Scooter Sleuth
+# 🛴🕵🏻‍♂️ Scooter Sleuth 🛴🕵🏻‍♀️ 
 
 We put a man on the moon but still need to switch between apps to find the closest electric scooter.  Not anymore!!
 Sooter Sleuth aggregates scooter share apps into one google maps rendered based on the users location. 
