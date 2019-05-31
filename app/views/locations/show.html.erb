@@ -23,16 +23,37 @@
   <div class="footer">
     <div class="row">
       <div class="col-sm col1">
-        Bird scooters near me: <%= @num_of_bird %></br>
-        Average Bird battery level: <%= @bird_battery %>
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="https://i.imgur.com/vjwfGlu.png">
+          </div>
+          <div class="col-sm-10">
+            Bird scooters near me: <%= @closest_scooters.count %></br>
+            Average Bird battery level: <%= @closest_scooters.count %>
+          </div>
+        </div>
       </div>
       <div class="col-sm col2">
-        Jump bikes near me: <%= @num_of_jump %></br>
-        Average Jump battery level: <%= @jump_battery %>
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="https://i.imgur.com/2Z46Omm.png">
+          </div>
+          <div class="col-sm-10">
+            Jump scooters near me: <%= @closest_scooters.count %></br>
+            Average Jump battery level: <%= @closest_scooters.count %>
+          </div>
+        </div>
       </div>
       <div class="col-sm col3">
-        Lime scooters near me: <%= @num_of_lime %></br>
-        Average Lime battery level: <%= @lime_battery %>
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="https://i.imgur.com/IfAWHc6.png">
+          </div>
+          <div class="col-sm-10">
+            Lime scooters near me: <%= @closest_scooters.count %></br>
+            Average Lime battery level: <%= @closest_scooters.count %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

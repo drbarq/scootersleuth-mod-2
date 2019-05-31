@@ -35,7 +35,7 @@ class Jump < ApplicationRecord
         Jump.lat_array.zip(Jump.lng_array)
     end
 
-    def self.merge_table              # takes the first 5 entries in the returned closest results and creates new entries in the aggregated scooter table
+    def self.merge_table              # takes the first 10 entries in the returned closest results and creates new entries in the aggregated scooter table
         Jump.closest.each do |jump_scoot|
             Scooter.create(
                 company: jump_scoot.company,
