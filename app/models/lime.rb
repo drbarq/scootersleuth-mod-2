@@ -52,6 +52,22 @@ class Lime < ApplicationRecord
         Lime.near([Location.last.latitude, Location.last.longitude]).first(5)
     end 
 
+    def self.lat_array 
+        Lime.closest.map do |scooter|
+            scooter.latitude
+        end 
+    end 
+
+    def self.lng_array 
+        Lime.closest.map do |scooter|
+            scooter.longitude
+        end 
+    end 
+
+    def self.lat_lng_array 
+        Lime.lat_array.zip(Lime.lng_array)
+    end 
+
     def self.merge_table          # takes the first 5 entries in the returned results and creates new entries in the aggregated table
         Lime.closest.each do |lime_scoot|
             Scooter.create(
