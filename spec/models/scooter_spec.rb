@@ -14,3 +14,15 @@ RSpec.describe Scooter, type: :model do
     expect(Scooter.new(attributes)).to be_valid
   end
 end
+
+
+describe 'Scooter' do
+ before do
+   @lab = Scooter.create(company: "Scooter")
+ end
+
+ it 'has a name' do
+   expect(Scooter.find_by(company: "Scooter")).to eq(@lab)
+ end
+
+end
