@@ -77,11 +77,13 @@ class Lime < ApplicationRecord
 
     def self.avg_battery_level     #this returns a hash of the battery levels and count
         Lime.group(:battery_level).distinct.count
+        Lime.select(:battery_level).each {|lime| puts lime}
+
     end
 
-    def self.avg_battery_num       # this returns a number for the average 
+    def self.avg_battery_num       # this returns a number for the average
         battery_score = 0
-        high = 80 
+        high = 80
         med = 55
         low = 20
 
@@ -92,9 +94,9 @@ class Lime < ApplicationRecord
                 battery_score += med * level[1]
             elsif level[0] == "low"
                 battery_score += low * level[1]
-            end 
-        end 
+            end
+        end
         num = battery_score / Lime.all.length
-    end 
+    end
 
 end
