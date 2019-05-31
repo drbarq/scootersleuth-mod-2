@@ -23,6 +23,7 @@
 
 body {
   background-color: #FFFFFA;
+  color: #444;
   text-shadow: 1px 1px 1px #CCC;
   background-image: url(asset_path('scooter.png'));
   background-repeat: space repeat-y;
@@ -106,8 +107,11 @@ ul {
 
 .footer {
   position: fixed;
-  bottom: 5%;
-  left: 30%;
+  font-size: 12pt;
+  width: 80%;
+  height: 8%;
+  bottom: 5.2%;
+  left: 10%;
   background-color: #CCC;
   border: 2px solid #DDD;
   border-radius: 5px;
@@ -131,4 +135,17 @@ ul {
   font-family: 'Ultra', serif;
   font-style: italic;
   text-shadow: 1px 1px 1px #55B;
+}
+
+.col1 {
+  border-right: 1px solid #AAA;
+}
+
+.col2 {
+  border-left: 1px solid #AAA;
+  border-right: 1px solid #AAA;
+}
+
+.col3 {
+  border-left: 1px solid #AAA;
 }
