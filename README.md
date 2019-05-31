@@ -8,6 +8,7 @@ Sooter Sleuth aggregates scooter share apps into one map rendered based on the u
 - Fork 🍴
 - Clone 
 - ``` bundle install ``` 
+- ``` rails db:migrate ```
 
 The app uses api keys which are stored within the encrypted Rails files.  Contact the team for access. 
 
@@ -32,3 +33,8 @@ Alex Hare [[GitHub]](https://github.com/ahare14)
 Chris Tero [[GitHub ]](https://github.com/takeastand) 
 
 Joe Tustin [[GitHub]](https://github.com/drbarq) [[Linkedin]](https://www.linkedin.com/in/joetustin/)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
