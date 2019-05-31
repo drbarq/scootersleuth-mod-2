@@ -21,7 +21,7 @@ class Jump < ApplicationRecord
     def self.closest          #find the closest bikes to the user based on location gps info
         Jump.create_scooter
 
-        Jump.near([Location.last.latitude, Location.last.longitude]).first(5)
+        Jump.near([Location.last.latitude, Location.last.longitude]).first(10)
     end
 
     def self.lat_array

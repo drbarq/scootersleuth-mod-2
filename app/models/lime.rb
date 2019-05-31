@@ -49,7 +49,7 @@ class Lime < ApplicationRecord
     def self.closest             #find the closest scooters to the user based on location gps info
         Lime.create_scooter
 
-        Lime.near([Location.last.latitude, Location.last.longitude]).first(5)
+        Lime.near([Location.last.latitude, Location.last.longitude]).first(10)
     end
 
     def self.lat_array

@@ -47,7 +47,7 @@ class Bird < ApplicationRecord
     def self.closest           #find the closest scooters to the user based on location gps info
         Bird.create_scooter
 
-        Bird.near([Location.last.latitude, Location.last.longitude]).first(5)
+        Bird.near([Location.last.latitude, Location.last.longitude]).first(10)
     end
 
     def self.lat_array
