@@ -28,7 +28,7 @@ Then rendering those scooters on the map.
 
 ## CONTRIBUTING
 
-Alex Hare [[GitHub]](https://github.com/ahare14)
+Alex Hare [[GitHub]](https://github.com/ahare14)[[Linkedin]](www.linkedin.com/in/alexander-hare-02b78633)
 
 Chris Tero [[GitHub ]](https://github.com/takeastand)
 
