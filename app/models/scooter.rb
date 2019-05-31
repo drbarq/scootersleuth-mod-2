@@ -1,6 +1,5 @@
 class Scooter < ApplicationRecord
 
-
   def self.populate_scooters
 
     if User.last.bird
@@ -16,8 +15,6 @@ class Scooter < ApplicationRecord
     end
 
     Scooter.all # acombination of all the closest scooters
-
   end
-
 
 end

@@ -3,14 +3,13 @@ require 'json'
 require 'mapquest'
 
 class Location < ApplicationRecord
-    has_many :favorites
+  has_many :favorites
 
   @@mapquest_key = Rails.application.credentials.mapquest
 
   @@mapquest = MapQuest.new(@@mapquest_key)
 
-
-  def self.get_location(address)
+  def self.get_location(address)  #uses Mapquest to validate location and gps information
     @@data = @@mapquest.geocoding.address(address)
   end
 
@@ -23,13 +22,4 @@ class Location < ApplicationRecord
     end
   end
 
-  #I think we can delete?
-  def self.get_lat_long
-    coordinates = []
-    @@data.locations.each do |location|
-      coordinates << location[:latLng][:lat]
-      coordinates << location[:latLng][:lng]
-    end
-    coordinates
-  end
 end

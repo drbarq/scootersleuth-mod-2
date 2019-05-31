@@ -1,6 +1,5 @@
 require 'httparty'
 
-
 class Jump < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
@@ -21,19 +20,15 @@ class Jump < ApplicationRecord
     def self.closest          #find the closest bikes to the user based on location gps info
         Jump.create_scooter
 
-        Jump.near([Location.last.latitude, Location.last.longitude]).first(5)
+        Jump.near([Location.last.latitude, Location.last.longitude]).first(10)
     end
 
     def self.lat_array
-        Jump.closest.map do |scooter|
-            scooter.latitude
-        end
+        Jump.closest.map {|scooter| scooter.latitude}
     end
 
     def self.lng_array
-        Jump.closest.map do |scooter|
-            scooter.longitude
-        end
+        Jump.closest.map {|scooter| scooter.longitude}
     end
 
     def self.lat_lng_array

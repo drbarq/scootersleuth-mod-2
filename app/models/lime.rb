@@ -49,7 +49,7 @@ class Lime < ApplicationRecord
     def self.closest             #find the closest scooters to the user based on location gps info
         Lime.create_scooter
 
-        Lime.near([Location.last.latitude, Location.last.longitude]).first(5)
+        Lime.near([Location.last.latitude, Location.last.longitude]).first(10)
     end
 
     def self.lat_array
@@ -75,10 +75,8 @@ class Lime < ApplicationRecord
         end
     end
 
-    def self.avg_battery_level     #this returns a hash of the battery levels and count
+    def self.avg_battery_level   #this returns a hash of the battery levels and count
         Lime.group(:battery_level).distinct.count
-        Lime.select(:battery_level).each {|lime| puts lime}
-
     end
 
     def self.avg_battery_num       # this returns a number for the average
@@ -86,8 +84,9 @@ class Lime < ApplicationRecord
         high = 80
         med = 55
         low = 20
-
+        
         Lime.avg_battery_level.each do |level|
+       
             if level[0] == "high"
                 battery_score += high * level[1]
             elsif level[0] == "medium"
@@ -96,7 +95,10 @@ class Lime < ApplicationRecord
                 battery_score += low * level[1]
             end
         end
-        num = battery_score / Lime.all.length
+
+        if Lime.all.length > 0 
+            num = battery_score / Lime.all.length       
+        end
     end
 
 end

@@ -1,7 +1,6 @@
 require 'uri'
 require 'net/http'
 
-
 class Bird < ApplicationRecord
     geocoded_by [:latitude, :longitude]
 
@@ -47,19 +46,15 @@ class Bird < ApplicationRecord
     def self.closest           #find the closest scooters to the user based on location gps info
         Bird.create_scooter
 
-        Bird.near([Location.last.latitude, Location.last.longitude]).first(5)
+        Bird.near([Location.last.latitude, Location.last.longitude]).first(10)
     end
 
     def self.lat_array
-        Bird.closest.map do |scooter|
-            scooter.latitude
-        end
+        Bird.closest.map {|scooter| scooter.latitude}
     end
 
     def self.lng_array
-        Bird.closest.map do |scooter|
-            scooter.longitude
-        end
+        Bird.closest.map {|scooter| scooter.longitude}
     end
 
     def self.lat_lng_array

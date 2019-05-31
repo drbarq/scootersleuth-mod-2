@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     Lime.destroy_all
     Jump.destroy_all
     Bird.destroy_all
-
   end
 
   # GET /users/new
