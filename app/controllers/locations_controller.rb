@@ -1,26 +1,29 @@
 class LocationsController < ApplicationController
- before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
+
   def index
     @locations = Location.all
   end
 
   def show
-    # take the most recent updated user and find the closest scooters based on preferences
-    @closest_scooters = Scooter.populate_scooters   #calls Scooter.populate_scooters on the Scooter controller
+    @closest_scooters = Scooter.populate_scooters
 
-    #average battery for scooters in the field
-    @bird_battery = Bird.avg_battery_level #returns a whole number
-    @lime_battery = Lime.avg_battery_num   #returns a whole number
-    @jump_battery = Jump.avg_battery_level #returns a whole number 
-    #dynamic number of scooters in area
+
+    @bird_battery = Bird.avg_battery_level
+    @lime_battery = Lime.avg_battery_num
+    @jump_battery = Jump.avg_battery_level
+    @spin_battery = "information unavailable"
+
     @num_of_bird = Bird.all.length
     @num_of_lime = Lime.all.length
     @num_of_jump = Jump.all.length
-    #Lat and lng for dynamic scooter placement 
+    @num_of_spin = Spin.all.length
+
     @birds = Bird.lat_lng_array
     @limes = Lime.lat_lng_array
     @jumps = Jump.lat_lng_array
-    #User location for dynamic google map render 
+    @spins = Spin.lat_lng_array
+
     @location_lat = Location.last.latitude
     @location_lng = Location.last.longitude
 
@@ -30,17 +33,13 @@ class LocationsController < ApplicationController
     @location = Location.new
   end
 
-  # GET /locations/1/edit
   def edit
   end
 
-  # POST /locations
-  # POST /locations.json
   def create
     address = params["location"]["address"]
     mapquest_response = Location.get_location(address)
     geocode_quality = mapquest_response.response[:results][0][:locations][0][:geocodeQualityCode]
-
 
     respond_to do |format|
       if geocode_quality == "P1AAA"
@@ -50,11 +49,8 @@ class LocationsController < ApplicationController
         format.html { redirect_to new_location_path, notice: 'Please enter a more accurate address'}
       end
     end
-
   end
 
-  # PATCH/PUT /locations/1
-  # PATCH/PUT /locations/1.json
   def update
     respond_to do |format|
       if @location.update(location_params)
@@ -67,8 +63,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # DELETE /locations/1
-  # DELETE /locations/1.json
   def destroy
     @location.destroy
     respond_to do |format|
@@ -78,12 +72,10 @@ class LocationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_location
       @location = Location.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
       params.require(:location).permit(:name, :latitude, :longitude)
     end

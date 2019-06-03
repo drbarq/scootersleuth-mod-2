@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Battery level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spins.each do |spin| %>
+      <tr>
+        <td><%= spin.company %></td>
+        <td><%= spin.latitude %></td>
+        <td><%= spin.longitude %></td>
+        <td><%= spin.battery_level %></td>
+        <td><%= link_to 'Show', spin %></td>
+        <td><%= link_to 'Edit', edit_spin_path(spin) %></td>
+        <td><%= link_to 'Destroy', spin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spin', new_spin_path %>

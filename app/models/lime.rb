@@ -16,14 +16,14 @@ class Lime < ApplicationRecord
 
         uri = URI.parse("https://web-production.lime.bike/api/rider/v1/views/map?ne_lat=#{ne_lat}&ne_lng=#{ne_lng}&sw_lat=#{sw_lat}&sw_lng=#{sw_lng}&user_latitude=#{latitude}&user_longitude=#{longitude}&zoom=16")
         request = Net::HTTP::Get.new(uri)
-            request["Accept"] = "*/*"
-            request["Authorization"] = "Bearer https://web-production.lime.bike/api/rider/v1/views/map?ne_lat=#{ne_lat}&ne_lng=#{ne_lng}&sw_lat=#{sw_lng}&sw_lng=#{sw_lng}&user_latitude=#{latitude}&user_longitude=#{longitude}&zoom=16'"
-            request["Cache-Control"] = "no-cache"
-            request["Connection"] = "keep-alive"
-            request["Host"] = "web-production.lime.bike"
-            request["Postman-Token"] = @key
-            request["User-Agent"] = "PostmanRuntime/7.11.0"
-            request["Cookie"] = "_limebike-web_session=NmdEdmpVU1pPelMwSUVucHVZL3FIbTZpcTEzVWo0TWZmVE9LUDNlVGlqZnErSDFvRjhVK3RPTEVJcUFvcXF5YnI2TCtxdXFQclpMakNJNUM2c0hGRlJCMGlMTWVHOTNRTjdXd041ZDgzR1pmQmdZMVo1QUp2YktielE0VVBRc2o2Vm5ucTdNL0FwOXRXb3NBVUFlam01L1IyTHloZjFnNkoxZTJMS1VQbk9wV3RlNDVOZHZ0bzhJTkd1VFZrdXVPWC9MT2ZoSkRnbCtITGtCRUdkYkxGSzNlOUJUZml1NWF2cW9oamF2Z1YrN1FieW1NOHlSRS9uODYyaGN5b0dWbVRhbnJwTXVST1IyTlE2bTNORkZRVi80czh5WURvODZJb0VNb2J2VEh6eUNIWklzMGZZOEVMeGIyRW9jWlIrTjV6YUpydW1GZk50Qm45L0VGUkhRTWVwanlzRU1LSHNGNFdkd1A5M1Z3aXE3KzBaSWRBVjlGMzZ2N3BpcjF4dUIwU0wwSnNEM2RUSnZkSHN0UXVZTVVCdzl5OWlQTG9FQmc1emJwcVVXNlRpaz0tLVVvT0tYZUZNa1RvMnhzWnlQSjhIZkE9PQ%3D%3D--1d95026cf852fab91cd84dbd71233d75fb90a5c6"
+        request["Accept"] = "*/*"
+        request["Authorization"] = "Bearer https://web-production.lime.bike/api/rider/v1/views/map?ne_lat=#{ne_lat}&ne_lng=#{ne_lng}&sw_lat=#{sw_lng}&sw_lng=#{sw_lng}&user_latitude=#{latitude}&user_longitude=#{longitude}&zoom=16'"
+        request["Cache-Control"] = "no-cache"
+        request["Connection"] = "keep-alive"
+        request["Host"] = "web-production.lime.bike"
+        request["Postman-Token"] = @key
+        request["User-Agent"] = "PostmanRuntime/7.11.0"
+        request["Cookie"] = "_limebike-web_session=NmdEdmpVU1pPelMwSUVucHVZL3FIbTZpcTEzVWo0TWZmVE9LUDNlVGlqZnErSDFvRjhVK3RPTEVJcUFvcXF5YnI2TCtxdXFQclpMakNJNUM2c0hGRlJCMGlMTWVHOTNRTjdXd041ZDgzR1pmQmdZMVo1QUp2YktielE0VVBRc2o2Vm5ucTdNL0FwOXRXb3NBVUFlam01L1IyTHloZjFnNkoxZTJMS1VQbk9wV3RlNDVOZHZ0bzhJTkd1VFZrdXVPWC9MT2ZoSkRnbCtITGtCRUdkYkxGSzNlOUJUZml1NWF2cW9oamF2Z1YrN1FieW1NOHlSRS9uODYyaGN5b0dWbVRhbnJwTXVST1IyTlE2bTNORkZRVi80czh5WURvODZJb0VNb2J2VEh6eUNIWklzMGZZOEVMeGIyRW9jWlIrTjV6YUpydW1GZk50Qm45L0VGUkhRTWVwanlzRU1LSHNGNFdkd1A5M1Z3aXE3KzBaSWRBVjlGMzZ2N3BpcjF4dUIwU0wwSnNEM2RUSnZkSHN0UXVZTVVCdzl5OWlQTG9FQmc1emJwcVVXNlRpaz0tLVVvT0tYZUZNa1RvMnhzWnlQSjhIZkE9PQ%3D%3D--1d95026cf852fab91cd84dbd71233d75fb90a5c6"
 
         req_options = {
             use_ssl: uri.scheme == "https",
@@ -31,7 +31,7 @@ class Lime < ApplicationRecord
 
         response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
                         http.request(request)
-                    end
+                   end
 
         jsonresponse = JSON.parse(response.body)["data"]["attributes"]["bikes"]
 
@@ -39,10 +39,12 @@ class Lime < ApplicationRecord
 
     def self.create_scooter     #create new lime scooter objects with returned data
         Lime.get_latest.each do |scooter|
-            Lime.create(company: "Lime",
+            Lime.create(
+                company: "Lime",
                 latitude: scooter["attributes"]["latitude"],
                 longitude: scooter["attributes"]["longitude"],
-                battery_level: scooter["attributes"]["battery_level"])
+                battery_level: scooter["attributes"]["battery_level"]
+                )
         end
     end
 
@@ -86,7 +88,6 @@ class Lime < ApplicationRecord
         low = 20
 
         Lime.avg_battery_level.each do |level|
-
             if level[0] == "high"
                 battery_score += high * level[1]
             elsif level[0] == "medium"
