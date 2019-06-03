@@ -14,7 +14,10 @@ class Scooter < ApplicationRecord
       Jump.merge_table
     end
 
-    Scooter.all # acombination of all the closest scooters
+    if User.last.spin
+      Spin.merge_table
+    end
+    Scooter.all
   end
 
 end

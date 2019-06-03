@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @spin.company %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @spin.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @spin.longitude %>
+</p>
+
+<p>
+  <strong>Battery level:</strong>
+  <%= @spin.battery_level %>
+</p>
+
+<%= link_to 'Edit', edit_spin_path(@spin) %> |
+<%= link_to 'Back', spins_path %>
