@@ -29,7 +29,7 @@ Then rendering those scooters on the map.
 
 <div align="center">
   
-  [![youtube video](https://i.ytimg.com/vi/PwzsgzlYaZY/maxresdefault.jpg)](https://www.youtube.com/watch?v=PwzsgzlYaZY)
+  [![video](https://i.imgur.com/CjNXVTC.png)](https://vimeo.com/369643267)
   
 </div>
 
